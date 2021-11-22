@@ -4,7 +4,7 @@ class menswear extends Component {
     render() {
         return (
             <div>
-                 <h1 style = {{textAlign: 'center'}}>All sarees</h1>
+                 <h1 style = {{textAlign: 'center'}}>All menswear</h1>
         <div className="container d-flex flex-column p-3">
             <div className="row justify-content-between">
                 <div className="col-4"  >
