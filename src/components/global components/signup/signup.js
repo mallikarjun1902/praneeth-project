@@ -9,7 +9,7 @@ import Input from "../../reusable components/input"
 import {Link} from "react-router-dom"
 
 /**
- * @author:"Akhilasai and Spandana"
+ * @author:"Madhavi itikala and Spandana"
  * @returns {Html}
  * Creating a functional component and returns UI on the browser.
  * Implementation of Signup Component having email validation and password validation.

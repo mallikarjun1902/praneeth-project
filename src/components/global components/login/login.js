@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Input from "../../reusable components/input"
 import Button from "../../reusable components/button"
 /**
- * @authors:"Akhilasai and Spandana"
+ * @authors:"madhavi itikala and Spandana"
  * @returns {Html}
  * Creating a functional component and returns UI on the browser.
  * Implementation of Login Component using States.

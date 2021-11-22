@@ -2,7 +2,7 @@
 import React from 'react';
 
 /**
- * @author:"Akhilasai and spandana"
+ * @author:"Madhavi itikala and spandana"
  * @param {*} props 
  * @returns {Html}
  * Creating Function Component with props passing as paramters and returns Html.
