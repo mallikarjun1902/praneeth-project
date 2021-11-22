@@ -8,6 +8,14 @@ import Forget from "./components/global components/forget/forget"
 import Landing from "./components/global components/Navbar/Navbar"
 import Blouses from "./components/categories/blouses"
 import Sarees from "./components/categories/sarees"
+import Collections from "./components/categories/collections"
+import Accessories from "./components/categories/accessories"
+import Dresses from "./components/categories/dresses"
+import HomeLiving from "./components/categories/home&living"
+import Loungewear from "./components/categories/loungewear"
+import Menswear from "./components/categories/menswear"
+import Bestseller from "./components/categories/bestseller"
+import About from "./components/categories/about"
 function App() {
   return (
     <>
@@ -25,6 +33,22 @@ function App() {
           exact path = "/blouses" render={()=><Blouses/>}/>
           <Route 
           exact path = "/sarees" render={()=><Sarees/>}/>
+           <Route 
+          exact path = "/collections" render={()=><Collections/>}/>
+          <Route 
+          exact path = "/accessories" render={()=><Accessories/>}/>
+         <Route 
+          exact path = "/dresses" render={()=><Dresses/>}/>
+           <Route 
+          exact path = "/homeliving" render={()=><HomeLiving/>}/>
+        <Route 
+          exact path = "/loungewear" render={()=><Loungewear/>}/>
+          <Route 
+          exact path = "/menswear" render={()=><Menswear/>}/>
+          <Route 
+          exact path = "/bestseller" render={()=><Bestseller/>}/>
+          <Route 
+          exact path = "/about" render={()=><About/>}/>
         </Switch>
       </Router>
     </>

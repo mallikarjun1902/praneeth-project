@@ -41,14 +41,14 @@ const NavBar = () => {
         <a class="nav-link" href="/dresses">DRESSES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/home&living">HOME & LIVING</a>
+        <a class="nav-link" href="/homeliving">HOME & LIVING</a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="#">BEST SELLER</a>
+        <a class="nav-link" href="bestseller">BEST SELLER</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">ABOUT US</a>
+        <a class="nav-link" href="about">ABOUT US</a>
       </li>
     </ul>
   </div>
