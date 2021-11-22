@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/global components/login/login"
 import Signup from "./components/global components/signup/signup"
 import Forget from "./components/global components/forget/forget"
-import Landing from "./components/global components/landing/landing"
+import Landing from "./components/global components/Navbar/Navbar"
 import Blouses from "./components/categories/blouses"
 import Sarees from "./components/categories/sarees"
 function App() {
@@ -13,8 +13,6 @@ function App() {
     <>
       <Router>
       <Switch>
-          <Route
-           exact path="/landing" render={() => <Landing />} />
 
           <Route
            exact path="/signup" render={() => <Signup />} />

@@ -43,37 +43,42 @@ class Blouses extends Component {
                 </div>
                 <div className="col-4" >
                 <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/chondon-bindi-178996_800x.jpg?v=1637157450" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>CHONDON BINDI</h1>
+                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/khamoshiyan-blouse-330096_800x.jpg?v=1637244897" style = {{width:"20vw",height:"40vh"}}/>
+                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>KHAMOSHIYAN (BLOUSE)</h1>
+               <p>RS. 4,500.00</p>
+               <p>Available Sizes: XS S M L XL XXL</p>
+                </div>
+                </div>
+                <div className="col-4" >    
+                <div className = "d-flex flex-column">
+                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/gerua-blouse-488828_800x.jpg?v=1637244809" style = {{width:"20vw",height:"40vh"}}/>
+                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>GERUA (BLOUSE)</h1>
                <p>RS.3,090.00</p>
+               <p>Available Sizes: XS S M L XL XXL</p>
                 </div>
                 </div>
                 <div className="col-4" >
                 <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/kumkum-bindi-802458_800x.jpg?v=1637157827" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>KUMKUM BINDI</h1>
-               <p>RS.3,090.00</p>
+                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/zehnaseeb-blouse-543575_800x.jpg?v=1637334769" style = {{width:"20vw",height:"40vh"}}/>
+                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>ZEHNASEEB (BLOUSE)</h1>
+               <p>RS. 4,500.00</p>
+               <p>Available Sizes: XS S M L XL XXL</p>
                 </div>
                 </div>
                 <div className="col-4" >
                 <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/do-lafzon-ki-kahaani-646272_800x.jpg?v=1637244813" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>DO LAFZON KI KAHAANI</h1>
-               <p>RS. 12,000.00</p>
+                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/kapittha-blouse-223069_800x.jpg?v=1636457963" style = {{width:"20vw",height:"40vh"}}/>
+                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>KAPITTHA (BLOUSE)</h1>
+               <p>RS. 3,200.00</p>
+               <p>Available Sizes: XS S M L XL XXL</p>
                 </div>
                 </div>
                 <div className="col-4" >
                 <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/kora-kaagaz-106984_800x.jpg?v=1637244899" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>KORA KAAGAZ (SAREE)</h1>
-               <p>RS. 12,000.00</p>
-                </div>
-                </div>
-                <div className="col-4" >
-                <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/when-night-falls-833804_800x.jpg?v=1636893123" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>WHEN NIGHT FALLS</h1>
+                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/varaha-blouse-788684_800x.jpg?v=1636458622" style = {{width:"20vw",height:"40vh"}}/>
+                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>VARAHA (BLOUSE)</h1>
                <p>RS. 2,300.00</p>
+               <p>Available Sizes: XS S M L XL XXL</p>
                 </div>
                 </div>
             </div>
