@@ -113,36 +113,28 @@ export default function Signup() {
         bday,
       };
 
-    //   let url = "http://localhost:1109/userPostData";
+      let url = "http://localhost:2000/signup";
 
-    //   const success = (data) => {
+      const success = (data) => {
         
-    //     console.log(data);
-    //     if (data) {
-    //       dispatch(fetchSignupData(data))
-    //       setError("User created successfully");
-    //       setSignupVisible(false);
-    //       history.push('./login');
+        console.log(data);
+        if (data) {
+         
+          setError("User created successfully");
+          setSignupVisible(false);
+          
 
-    //     }
-    //     setError("");
-    //   };
-    //   const failure = (err) => {
-    //     console.log("Error", err);
-    //   };
-    //   await controller.sendRequest(
-    //     url,
-    //     "post",
-    //     body,
-    //     false,
-    //     null,
-    //     success,
-    //     failure
-    //   );
-      // window.location.href = "/login";
-    //   } 
+        }
+        setError("");
+      };
+      const failure = (err) => {
+        console.log("Error", err);
+      };
+     
+      window.location.href = "/login";
+      } 
   };
-}
+
 
 
   return (
@@ -227,5 +219,4 @@ export default function Signup() {
      
     </>
   );
-
-}
+ }

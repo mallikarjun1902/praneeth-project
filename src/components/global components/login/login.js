@@ -15,28 +15,26 @@ import Button from "../../reusable components/button"
  */
 function Login() {
   const onSubmit = () => {
-    // const success = (data) => {
-//       console.log(data);
-//       if (data.length == 0) {
-//         setInvalidDetails(true);
-//         setError("Invalid credentials");
-//         // setSignupVisible(true)
-//       } else {
-//         setError("");
+    const success = (data) => {
+      console.log(data);
+      if (data.length == 0) {
+        setInvalidDetails(true);
+        setError("Invalid credentials");
+        // setSignupVisible(true)
+      } else {
+        setError("");
+      }
 
-//         window.location.href = "./dashboard";
-//       }
+      console.log(data);
+    };
+    const failure = (err) => {
+      console.log(err);
+    };
+    const body = { userName, password };
+    let url = " http://localhost:2000/login";
 
-//       console.log(data);
-//     };
-//     const failure = (err) => {
-//       console.log(err);
-//     };
-//     const body = { userName, password };
-//     let url = " http://localhost:1109/validateDetails";
-
-//     controller.sendRequest(url, "post", body, false, null, success, failure);
-//     console.log(body);
+   
+    console.log(body);
   };
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
