@@ -17,8 +17,8 @@ const NavBar = () => {
           </a>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGsPHNDTRSXj2zKf1LQR3pvWEttfSMrN2yw&usqp=CAU" style={{ height: "40px", width: "40px" }} />
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dIdyyUTo69D6o_niUIZNG_IZ1GoCgsExybjLwrb7WqduxwgV5p7_PCnVZk2L-P8v-KE&usqp=CAU" style={{ height: "40px", width: "40px" }} />
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdR8264afNa5wCMsyZEqkmVEFmR45HmB5fkg&usqp=CAU" style={{ height: "40px", width: "40px" }} />
-         
+          <a href="/trackorder"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdR8264afNa5wCMsyZEqkmVEFmR45HmB5fkg&usqp=CAU" style={{ height: "40px", width: "40px" }} />
+         </a>
         
        
         </div>
@@ -38,9 +38,8 @@ const NavBar = () => {
               <a class="nav-link" href="/blouses">BLOUSES</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="menswear">MEN'S WEAR</a>
+              <a class="nav-link" href="/menswear">MEN'S WEAR</a>
 
-              
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/collections">COLLECTIONS</a>
@@ -59,10 +58,10 @@ const NavBar = () => {
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="bestseller">BEST SELLER</a>
+              <a class="nav-link" href="/bestseller">BEST SELLER</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about">ABOUT US</a>
+              <a class="nav-link" href="/about">ABOUT US</a>
             </li>
           </ul>
         </div>
