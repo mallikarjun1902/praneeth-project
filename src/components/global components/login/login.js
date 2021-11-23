@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 //Importing User Components from Local Files
 import Input from "../../reusable components/input"
 import Button from "../../reusable components/button"
+import axios from 'axios'
 /**
  * @authors:"madhavi itikala and Spandana"
  * @returns {Html}
@@ -30,11 +31,12 @@ function Login() {
     const failure = (err) => {
       console.log(err);
     };
-    const body = { userName, password };
-    let url = " http://localhost:2000/login";
 
-   
-    console.log(body);
+    const body = { userName, password };
+    axios.post("http://localhost:2000/login", body).then((response) => {
+      console.log(response)
+    });
+  console.log(body);
   };
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");

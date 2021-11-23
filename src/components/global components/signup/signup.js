@@ -7,6 +7,7 @@ import React, { useState,useEffect } from "react";
 import Button from "../../reusable components/button"
 import Input from "../../reusable components/input"
 import {Link} from "react-router-dom"
+import axios from 'axios'
 
 /**
  * @author:"Madhavi itikala and Spandana"
@@ -130,8 +131,11 @@ export default function Signup() {
       const failure = (err) => {
         console.log("Error", err);
       };
+      axios.post("http://localhost:2000/signup", body).then((response) => {
+      console.log(response)
+    });
      
-      window.location.href = "/login";
+      // window.location.href = "/login";
       } 
   };
 
