@@ -1,6 +1,8 @@
 import React from 'react';
 
 const NavBar = () => {
+
+  
   return (
     <>
       <div class="topnav d-flex flex-row justify-content-center">
