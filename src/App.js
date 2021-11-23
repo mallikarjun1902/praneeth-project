@@ -16,14 +16,15 @@ import Loungewear from "./components/categories/loungewear"
 import Menswear from "./components/categories/menswear"
 import Bestseller from "./components/categories/bestseller"
 import About from "./components/categories/about"
-import Navbar from "./components/global components/Navbar/Navbar"
+import NavBar from "./components/global components/Navbar/Navbar"
+import Sarees1 from "./components/products/saree1"
 function App() {
   const renderComponent = (Page)=>{
     console.log(Page)
     return 
     (
       <>
-     
+     <NavBar/>
       <Page/>
       </>
     )
@@ -36,11 +37,10 @@ function App() {
 
           <Route
            exact path="/signup" render={() => <Signup />} />
- <Route
-           exact path="/" render={() => <Navbar/>} />
+
 
           <Route 
-          exact path="/login" render={ ()=><Login/>} />
+          exact path="/login" render={ ()=><Login/>}/>
           <Route 
           exact path="/forget" render={() => <Forget />} />
           <Route 
@@ -63,7 +63,10 @@ function App() {
           exact path = "/bestseller" render={()=><Bestseller/>}/>
           <Route 
           exact path = "/about" render={()=><About/>}/>
+          <Route
+           exact path="/products/1" render={() => <Sarees1 />} />
         </Switch>
+
       </Router>
     </>
   );

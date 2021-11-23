@@ -1,9 +1,13 @@
 import React, { Component, useState } from "react";
-
+import {Link} from 'react-router-dom'
 function Forget() {
   const onSubmitPassword = () => {
     setPass(true);
-    return true;
+    setTimeout(()=>{
+      window.location.href = "/login"
+    },1000)
+    
+    
 
   };
   const [pass, setPass] = useState(false);
@@ -21,10 +25,13 @@ function Forget() {
             className="form-control mb-3"
             placeholder="Confirm Password"
           />
+      
           <button className="btn btn-primary" onClick={() => onSubmitPassword()}>
+          
             Submit
           </button>
-          {setPass ? (
+          
+          {pass ? (
             <>
               <p>password changed successfully</p>
             </>

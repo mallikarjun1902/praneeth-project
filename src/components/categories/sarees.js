@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Sarees extends Component {
+  renderPage = ()=>{
+    window.location.href = "/products/1"
+}
+
     render() {
         return (
             <div>
@@ -9,7 +13,7 @@ class Sarees extends Component {
             <div className="row justify-content-between">
                 <div className="col-4"  >
                     <div className = "d-flex flex-column">
-                <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-271942_900x.jpg?v=1637333747" style = {{width:"20vw",height:"40vh",marginRight:"2px"}}/>
+                <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-271942_900x.jpg?v=1637333747" onClick = {()=>this.renderPage()} style = {{width:"20vw",height:"40vh",marginRight:"2px"}}/>
                <h1 style = {{fontSize:"20px",marginTop:"15px"}}>DREAMING OF OCEAN (SAREE)</h1>
                <p>RS.2,800.00</p>
                 </div>
