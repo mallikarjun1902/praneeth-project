@@ -115,7 +115,7 @@ export default function Signup() {
         bday,
       };
 
-      let url = "http://localhost:2000/signup";
+      let url = "http://localhost:1109/signup";
 
       const success = (data) => {
         
