@@ -11,7 +11,7 @@ class Sarees extends Component {
                  <h1 style = {{textAlign: 'center',padding:'10px'}}>All sarees</h1>
         <div className="container d-flex flex-column p-3">
             <div className="row justify-content-between">
-                <div className="col-4"  >
+                <div className=" col-lg-4"  >
                     <div className = "d-flex flex-column">
                 <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-271942_900x.jpg?v=1637333747" onClick = {()=>this.renderPage()} style = {{width:"20vw",height:"40vh",marginRight:"2px"}}/>
                <h1 style = {{fontSize:"20px",marginTop:"15px"}}>DREAMING OF OCEAN (SAREE)</h1>

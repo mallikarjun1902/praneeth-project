@@ -10,7 +10,7 @@ class Landing extends Component {
                       <div>
                  <h1 style = {{fontSize:"20px" ,textAlign:"center"}}>sarees</h1> 
                  <Link to = '/sarees'>
-                <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-271942_900x.jpg?v=1637333747" onClick = {()=>this.renderPage()} style = {{width:"20vw",height:"40vh",marginRight:"2px"}}/>
+                <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-271942_900x.jpg?v=1637333747"  style = {{width:"20vw",height:"40vh",marginRight:"2px"}}/>
                 </Link>
                 </div>
                 </div>

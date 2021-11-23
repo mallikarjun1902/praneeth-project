@@ -16,32 +16,35 @@ import axios from 'axios'
  * Implementation of Login Component using States.
  */
 function Login() {
-  const onSubmit = () => {
-    const success = (data) => {
-      console.log(data);
-      if (data.length == 0) {
-        setInvalidDetails(true);
-        setError("Invalid credentials");
-        // setSignupVisible(true)
-      } else {
-        setError("");
-      }
-
-      console.log(data);
-    };
-    
-
-    const body = { userName, password };
-    axios.post("http://localhost:1109/login", body).then((response) => {
-      console.log(response) 
-    });
-  console.log(body);
-  };
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [signupVisible, setSignupVisible] = useState(false);
   const [invalidDetails, setInvalidDetails] = useState(false);
+  const onSubmit = () => {
+    // const success = (data) => {
+    //   console.log(data);
+    //   if (data.length == 0) {
+    //     setInvalidDetails(true);
+    //     setError("Invalid credentials");
+    //     // setSignupVisible(true)
+    //   } else {
+    //     setError("");
+    //   }
+
+    //   console.log(data);
+    // };
+    
+
+    const body = { userName, password };
+    axios.post("http://localhost:1109/login", body).then((response) => {
+      console.log(response)
+      alert("logged in successfully")
+      window.location.href='/'
+      }).catch(error => setInvalidDetails(true))
+
+  };
+  
 
   return (
     <>
@@ -86,16 +89,17 @@ function Login() {
                 </Link>
 
                 <div className="d-flex flex-column align-items-center">
-                  <Link to ="/landing">
+                  
                   <Button
                     className="btn btn-primary"
                     handleClick={() => onSubmit()}
                     value="Submit"
-                  >Submit</Button>  
-                </Link>
+                  >Submit</Button>   
+               
                 </div>
                 <p className="text-danger">{error}</p>
-                {invalidDetails ? <a href="./signup">Create account</a> : ""}
+                {invalidDetails ? <a href="/signup">Create account</a> : ""}
+               
               </div>
             </div>
           </div>

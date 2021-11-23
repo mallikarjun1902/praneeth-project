@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import NavBar from "./components/global components/Navbar/Navbar";
+import Footer from "./components/global components/footer/footercomponents"
 ReactDOM.render(
   <React.StrictMode>
    <NavBar/>
     <App />
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
