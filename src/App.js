@@ -13,7 +13,7 @@ import Accessories from "./components/categories/accessories"
 import Dresses from "./components/categories/dresses"
 import HomeLiving from "./components/categories/home&living"
 import Loungewear from "./components/categories/loungewear"
-import menswear from "./components/categories/menswear"
+import Menswear from "./components/categories/menswear"
 import Bestseller from "./components/categories/bestseller"
 import About from "./components/categories/about"
 function App() {
@@ -44,7 +44,7 @@ function App() {
         <Route 
           exact path = "/loungewear" render={()=><Loungewear/>}/>
           <Route 
-          exact path = "/menswear" render={()=><menswear/>}/>
+          exact path = "/menswear" render={()=><Menswear/>}/>
           <Route 
           exact path = "/bestseller" render={()=><Bestseller/>}/>
           <Route 
