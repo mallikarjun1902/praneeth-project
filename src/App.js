@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/global components/login/login"
 import Signup from "./components/global components/signup/signup"
 import Forget from "./components/global components/forget/forget"
-import Landing from "./components/global components/Navbar/Navbar"
+
 import Blouses from "./components/categories/blouses"
 import Sarees from "./components/categories/sarees"
 import Collections from "./components/categories/collections"
@@ -23,18 +23,22 @@ import Footer from "./components/global components/footer/footercomponents"
 import NavBar from "./components/global components/Navbar/Navbar"
 import Sarees1 from "./components/products/saree1"
 
-function App() {
-  const renderComponent = (Page)=>{
-    console.log(Page)
-    return 
-    (
-      <>
-     <NavBar/>
-      <Page/>
-      </>
-    )
 
-  }
+
+import Landing from "./components/global components/landing/landing"
+
+function App() {
+  // const renderComponent = (Page)=>{
+  //   console.log(Page)
+  //   return 
+  //   (
+  //     <>
+  //    <NavBar/>
+  //     <Page/>
+  //     </>
+  //   )
+
+  // }
   return (
     <>
       <Router>
@@ -42,7 +46,8 @@ function App() {
 
           <Route
            exact path="/signup" render={() => <Signup />} />
-
+          <Route
+           exact path="/" render={() => <Landing />} />
 
           <Route 
           exact path="/login" render={ ()=><Login/>}/>
