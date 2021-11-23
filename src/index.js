@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import NavBar from "./components/global components/Navbar/Navbar";
 ReactDOM.render(
   <React.StrictMode>
-    <NavBar/>
+  <NavBar/>
     <App />
   </React.StrictMode>,
   document.getElementById('root')

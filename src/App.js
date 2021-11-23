@@ -16,7 +16,19 @@ import Loungewear from "./components/categories/loungewear"
 import Menswear from "./components/categories/menswear"
 import Bestseller from "./components/categories/bestseller"
 import About from "./components/categories/about"
+import Navbar from "./components/global components/Navbar/Navbar"
 function App() {
+  const renderComponent = (Page)=>{
+    console.log(Page)
+    return 
+    (
+      <>
+     
+      <Page/>
+      </>
+    )
+
+  }
   return (
     <>
       <Router>
@@ -24,9 +36,11 @@ function App() {
 
           <Route
            exact path="/signup" render={() => <Signup />} />
+ <Route
+           exact path="/" render={() => <Navbar/>} />
 
           <Route 
-          exact path="/login" render={() => <Login />} />
+          exact path="/login" render={ ()=><Login/>} />
           <Route 
           exact path="/forget" render={() => <Forget />} />
           <Route 
