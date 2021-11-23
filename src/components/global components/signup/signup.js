@@ -21,7 +21,7 @@ import axios from 'axios'
  */
 
 export default function Signup() {
-    const [userName,setUserName] = useState("")
+    
     const [firstName,setFirstName] = useState("")
     const [lastName,setLastName] = useState("")
     const [email, setEmail] = useState("");
@@ -107,7 +107,8 @@ export default function Signup() {
     if (validateEmail(email) && check) {
       const body = {
        
-        userName,
+        firstName,
+        lastName,
         email,
         password,
         phoneNumber,

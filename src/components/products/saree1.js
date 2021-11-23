@@ -27,24 +27,24 @@ class Saree1 extends Component {
       
     return (
       <>
-        <div class="container d-flex">
+        <div class="container" >
           <div class="row">
-            <div class="col-7 mb-2">
+            <div class="col-7 mb-2 overflow-scroll" style = {{minHeight:"50vh"}}>
               <img
                 src="https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-271942_800x.jpg?v=1637333747"
-                style={{ height: "60vh", width: "40vw", padding: "10px" }}
+                style={{ height: "500px", width: "500px", padding: "10px" }}
               />
               <img
                 src="https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-915441_800x.jpg?v=1637333747"
-                style={{ height: "60vh", width: "40vw", padding: "10px" }}
+                style={{ height: "500px", width: "500px", padding: "10px" }}
               />
               <img
                 src="https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-105315_800x.jpg?v=1637333747"
-                style={{ height: "60vh", width: "40vw", padding: "10px" }}
+                style={{ height: "500px", width: "500px", padding: "10px" }}
               />
               <img
                 src="https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-998720_800x.jpg?v=1637333747"
-                style={{ height: "60vh", width: "40vw", padding: "10px" }}
+                style={{ height: "500px", width: "500px", padding: "10px" }}
               />
             </div>
             <div class="col-5">
@@ -62,7 +62,7 @@ class Saree1 extends Component {
               <h1 style={{ fontSize: "15px" }}>MRP: RS. 2,800.00</h1>
               <p>Price inclusive of taxes</p>
               <p>Or 3 interest-free payments of ₹933 with  </p>
-              <div class="container d-flex" style = {{borderRadius:"2px",borderWidth:"2px"}}>
+              <div class="container d-flex" style = {{borderRadius:"10px",border:"0px solid #e7e7e7",whiteSpace: "nowrap",height:"30px"}}>
                <button onClick = {()=>this.decrementValue()}>-</button>
                <button >{this.state.value}</button>
                <button onClick = {()=>this.incrementValue()}>+</button>
