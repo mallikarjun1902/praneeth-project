@@ -4,7 +4,7 @@ class Loungewear extends Component {
     render() {
         return (
             <div><br></br>
-            <h2 style = {{textAlign: 'center'}}>WOKE UP LIKE THIS - LOUNGE WEAR</h2><br></br>
+            <h2 style = {{textAlign: 'center',padding:'10px'}}>WOKE UP LIKE THIS - LOUNGE WEAR</h2><br></br>
    <div className="container d-flex flex-column p-3">
        <div className="row justify-content-between">
            <div className="col-4"  >
