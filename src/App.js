@@ -17,6 +17,7 @@ import Menswear from "./components/categories/menswear"
 import Bestseller from "./components/categories/bestseller"
 import About from "./components/categories/about"
 import Navbar from "./components/global components/Navbar/Navbar"
+import Footer from "./components/global components/footer/footercomponents"
 function App() {
   const renderComponent = (Page)=>{
     console.log(Page)
@@ -63,6 +64,8 @@ function App() {
           exact path = "/bestseller" render={()=><Bestseller/>}/>
           <Route 
           exact path = "/about" render={()=><About/>}/>
+           <Route
+           exact path="/footer" render={() => <Footer />} />
         </Switch>
       </Router>
     </>
