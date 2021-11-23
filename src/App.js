@@ -23,22 +23,12 @@ import Footer from "./components/global components/footer/footercomponents"
 import NavBar from "./components/global components/Navbar/Navbar"
 import Sarees1 from "./components/products/saree1"
 
-
+import Trackorder from "./components/global components/order/trackorder"
 
 import Landing from "./components/global components/landing/landing"
 
 function App() {
-  // const renderComponent = (Page)=>{
-  //   console.log(Page)
-  //   return 
-  //   (
-  //     <>
-  //    <NavBar/>
-  //     <Page/>
-  //     </>
-  //   )
-
-  // }
+  
   return (
     <>
       <Router>
@@ -79,6 +69,9 @@ function App() {
 
           <Route
            exact path="/products/1" render={() => <Sarees1 />} />
+
+          <Route
+           exact path="/trackorder" render={() => <Trackorder />} />
 
         </Switch>
 
