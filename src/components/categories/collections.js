@@ -4,7 +4,7 @@ class Collections extends Component {
     render() {
         return (
             <>
-              <h1 style = {{textAlign: 'center'}}>All Collections</h1>
+              <h1 style = {{textAlign: 'center',padding:'10px'}}>All Collections</h1>
         <div className="container d-flex flex-column p-3">
             <div className="row justify-content-between">
                 <div className="col-3"  >

@@ -5,7 +5,7 @@ class Blouses extends Component {
         return (
             <div>
                 <>
-                <h1 style = {{textAlign: 'center'}}>All Blouses</h1>
+                <h1 style = {{textAlign: 'center',padding:'10px'}}>All Blouses</h1>
         <div className="container d-flex flex-column p-3">
             <div className="row justify-content-between">
                 <div className="col-4"  >
