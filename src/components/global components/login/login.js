@@ -26,20 +26,7 @@ function Login() {
   const [signupVisible, setSignupVisible] = useState(false);
   const [invalidDetails, setInvalidDetails] = useState(false);
   const onSubmit = () => {
-    // const success = (data) => {
-    //   console.log(data);
-    //   if (data.length == 0) {
-    //     setInvalidDetails(true);
-    //     setError("Invalid credentials");
-    //     // setSignupVisible(true)
-    //   } else {
-    //     setError("");
-    //   }
-
-    //   console.log(data);
-    // };
     
-
     const body = { userName, password };
     dispatch(loginUserAuth(body,(data)=>history.push('/')
     ))
@@ -64,7 +51,7 @@ function Login() {
               style={{ borderRadius: "10px", width: "600px" }}
             >
             
-              <h1 className="heading text-center">Login to Suta</h1>
+              <h1 className="heading text-center">Login to SuTa</h1>
               <div className="form">
                 <label
                   for="email"

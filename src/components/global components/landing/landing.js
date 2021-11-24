@@ -26,7 +26,7 @@ console.log("landinf page")
       <div class="container d-flex">
         <div class="row">
             {console.log(category)}
-          {category?.map((each) => (
+          {category?.map((each) => ( 
             <div className="col-4">
               <div>
                 <h1 style={{ fontSize: "20px", textAlign: "center" }}>

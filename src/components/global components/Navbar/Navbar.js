@@ -90,11 +90,13 @@ const NavBar = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGsPHNDTRSXj2zKf1LQR3pvWEttfSMrN2yw&usqp=CAU"
             style={{ height: "50px", width: "50px" ,padding:"10px" }}
           />
+          <a href="/cart">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dIdyyUTo69D6o_niUIZNG_IZ1GoCgsExybjLwrb7WqduxwgV5p7_PCnVZk2L-P8v-KE&usqp=CAU"
             style={{ height: "50px", width: "50px",padding:"10px" }}
           />
-          < a href = '/trackorder'>
+           </a>
+          <a href = '/trackorder'>
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdR8264afNa5wCMsyZEqkmVEFmR45HmB5fkg&usqp=CAU"
             style={{ height: "50px", width: "50px",padding:"10px" }}

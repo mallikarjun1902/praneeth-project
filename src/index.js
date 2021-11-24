@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import reportWebVitals from "./reportWebVitals"; 
 import Footer from "./components/global components/footer/footercomponents";
 import NavBar from "./components/global components/Navbar/Navbar";
 import store from "./store";
