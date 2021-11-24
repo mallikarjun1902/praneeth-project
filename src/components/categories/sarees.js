@@ -1,28 +1,20 @@
-import React, { Component ,useState,useEffect} from 'react';
-import axios from "axios";
-function Sarees () {
-    const[item,eachItem] = useState([])
-    useEffect(() => {
-        axios
-          .get("http://localhost:1109/category")
-          .then((response) => {
-              eachItem(response.data)
-            console.log(response);
+import React, { Component } from 'react';
+import {getAllProductList} from '../../store/actions'
+import {useDispatch} from 'react-redux'
 
-          })
-          .catch((error) => console.log(error));
-      },[]);
+function Sarees() {
+    const dispatch=useDispatch()
 
- const renderPage = ()=>{
+  const renderPage = ()=>{
     window.location.href = "/products/1"
     // window.location.pathname.split("/")[2]
 }
+dispatch(getAllProductList())
 
    
         return (
     
             <div>
-                    {console.log(item)} 
                  <h1 style = {{textAlign: 'center',padding:'10px'}}>All sarees</h1>
         <div className="container d-flex flex-column p-3">
             <div className="row justify-content-between">
