@@ -14,12 +14,6 @@ import * as type from "../type";
           userData:action.payload,
           isLoggedIn:true
         };
-      case type.USER_SIGN_UP:
-        return {
-          ...state,
-          userSignupDate:action.payload
-        };
-      
   
       default:
         return state;

@@ -28,7 +28,7 @@ function Login() {
   const onSubmit = () => {
     
     const body = { userName, password };
-    dispatch(loginUserAuth(body,(data)=>history.push('/')
+    dispatch(loginUserAuth(body,()=>history.push('/')
     ))
     
     // axios.post("http://localhost:1109/login", body).then((response) => {

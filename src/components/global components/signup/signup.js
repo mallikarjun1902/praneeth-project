@@ -4,7 +4,7 @@ import React, { useState,useEffect } from "react";
 // import controller from "../../controller/control";
 // import PhoneInput from "react-phone-number-Input";
 // import Login from "../login/login"
-import phoneNumber from "react-phone-number-input";
+import PhoneNumber from "react-phone-number-input";
 import Button from "../../reusable components/button"
 import Input from "../../reusable components/input"
 import {Link} from "react-router-dom"
@@ -180,12 +180,12 @@ export default function Signup() {
                 }}
               />
 
-              <Input 
-                type="tel"
+              <PhoneNumber 
+                className="form-control mt-3 mb-3"
                 placeholder="Enter your phone number"
-                pattern="[7-9]{1}[0-9]{9}"
+                // pattern="[7-9]{1}[0-9]{9}"
                 value={phoneNumber}
-                handleChange={(child)=>{
+                onChange={(child)=>{
                   setPhoneNumber(child);
                   //validatephoneNumber(child);
                 }}
