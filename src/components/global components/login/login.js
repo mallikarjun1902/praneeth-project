@@ -26,8 +26,8 @@ function Login() {
     const body = { userName, password };
     axios.post("http://localhost:1109/login", body).then((response) => {
       console.log(response)
-      alert("logged in successfully")
-      window.location.href='/'
+      // alert("logged in successfully")
+      // window.location.href='/'
       }).catch(error => setInvalidDetails(true))
 
   };
