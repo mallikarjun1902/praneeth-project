@@ -1,18 +1,26 @@
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {getAllCategoryList} from "../../../store/actions"
+import {useDispatch} from "react-redux"
 function Landing() {
+  const dispatch=useDispatch()
   const [category, setCategory] = useState([]);
   useEffect(() => {
-    axios
-      .get("http://localhost:1109/category")
-      .then((response) => {
-          setCategory(response.data)
-        console.log(response);
-      })
-      .catch((error) => console.log(error));
+    dispatch(getAllCategoryList())
+    // const headers = {
+    //   'Content-Type': 'application/json',
+    //   'Authorization': 'JWT fefege...'
+    // }
+    // axios
+    //   .get("http://localhost:1109/category",{headers:headers})
+    //   .then((response) => {
+    //       setCategory(response.data)
+    //     console.log(response);
+    //   })
+    //   .catch((error) => console.log(error));
   },[]);
-
+console.log("landinf page")
   return (
     <>
       <div class="container d-flex">

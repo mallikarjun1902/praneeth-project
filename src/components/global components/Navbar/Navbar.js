@@ -7,12 +7,16 @@ const NavBar = () => {
 
   const [category,setCategory]=useState([])
 
-  useEffect(() =>{
-    axios.get("http://localhost:1109/category").then((response) => {
-      console.log(response)
-      setCategory(response.data)
-    }).catch((error) => console.log("error",error))
-  },[])
+  // useEffect(() =>{
+  //   const headers = {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `JWT fee.`
+  //   }
+  //   axios.get("http://localhost:1109/category",{headers:headers}).then((response) => {
+  //     console.log(response)
+  //     setCategory(response.data)
+  //   }).catch((error) => console.log("error",error))
+  // },[])
 
   return (
     <>

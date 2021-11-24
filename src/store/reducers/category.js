@@ -1,26 +1,19 @@
 import * as type from "../type";
   
   const initialState = {
-    userData:[],
-    isLoggedIn:false
+    category:[],
+    
     
   };
   
   export default function reducer(state = initialState, action) {
     switch (action.type) {
-      case type.LOGIN:
+      case type.CATEGORY:
         return {
           ...state,
-          userData:action.payload,
-          isLoggedIn:true
-        };
-      case type.USER_SIGN_UP:
-        return {
-          ...state,
-          userSignupDate:action.payload
+          category:action.payload,
         };
       
-  
       default:
         return state;
     }
