@@ -4,7 +4,7 @@ import React, { useState,useEffect } from "react";
 // import controller from "../../controller/control";
 // import PhoneInput from "react-phone-number-Input";
 // import Login from "../login/login"
-import phoneNumber from "react-phone-number-input";
+// import phoneNumber from "react-phone-number-input";
 import Button from "../../reusable components/button"
 import Input from "../../reusable components/input"
 import {Link} from "react-router-dom"

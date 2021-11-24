@@ -1,23 +1,17 @@
 import React,{useEffect,useState} from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios'
-
-
+import {useDispatch,useSelector} from "react-redux"
+import {getAllCategoryList} from "../../../store/actions"
 const NavBar = () => {
   
-
-  const [category,setCategory]=useState([])
-
-  // useEffect(() =>{
-  //   const headers = {
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `JWT fee.`
-  //   }
-  //   axios.get("http://localhost:1109/category",{headers:headers}).then((response) => {
-  //     console.log(response)
-  //     setCategory(response.data)
-  //   }).catch((error) => console.log("error",error))
-  // },[])
+  const categoryList = useSelector((state) =>state?.category?.category)
+  
+  const dispatch=useDispatch()
+ useEffect(()=>{
+   dispatch(getAllCategoryList())
+ })
+  
 
   return (
     <>
@@ -111,7 +105,7 @@ const NavBar = () => {
       >
         <div class="container-fluid d-flex flex-row justify-content-center justify-content-space-between">
           <ul class="navbar-nav">
-            {category?.map((each)=>(
+            {categoryList?.map((each)=>(
               <li class="nav-item">
               <a class="nav-link" href="/sarees" style = {{textTransform:"uppercase"}}>
                 {each.categoryName}
