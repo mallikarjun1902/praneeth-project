@@ -14,8 +14,6 @@ import * as type from "../type";
           userData:action.payload,
           isLoggedIn:true
         };
-      
-      
   
       default:
         return state;

@@ -198,7 +198,7 @@ export default function Signup() {
             handleChange={(child) =>
               setAddress(child)
             }
-          />
+          /> 
 
 
           <p>{validatemsg}</p>
