@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import {getAllProductList} from '../../store/actions'
+import {useDispatch} from 'react-redux'
 
-class Sarees extends Component {
-  renderPage = ()=>{
+function Sarees() {
+    const dispatch=useDispatch()
+
+  const renderPage = ()=>{
     window.location.href = "/products/1"
 }
+dispatch(getAllProductList())
 
-    render() {
+   
         return (
             <div>
                  <h1 style = {{textAlign: 'center',padding:'10px'}}>All sarees</h1>
@@ -79,6 +84,6 @@ class Sarees extends Component {
             </div>
         );
     }
-}
+
 
 export default Sarees;

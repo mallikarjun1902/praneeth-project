@@ -1,13 +1,13 @@
 //Importing React Component from react library
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 //import User Components from Local Files
 // import controller from "../../controller/control";
 // import PhoneInput from "react-phone-number-Input";
 // import Login from "../login/login"
-import phoneNumber from "react-phone-number-input";
+import PhoneInput from "react-phone-number-input";
 import Button from "../../reusable components/button"
 import Input from "../../reusable components/input"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import axios from 'axios'
 
 /**
@@ -22,24 +22,24 @@ import axios from 'axios'
  */
 
 export default function Signup() {
-    
-    const [userName,setuserName] = useState("")
-    //const [lastName,setLastName] = useState("")
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [address, setAddress] = useState("");
-    const [gender, setGender] = useState("");
-    //const [bday, setBirthday] = useState("");
-    const [validatemsg, setValidateMsg] = useState("");
-    const [validatemsg1, setValidateMsg1] = useState("");
-    const [error, setError] = useState("");
-    const [check, setCheck] = useState(false);
-    const [buttonClick, setButton] = useState(false);
-    const [signupVisible, setSignupVisible] = useState(true);
-    //const [visible, setVisible] = useState(false);
-  
-  
+
+  const [userName, setuserName] = useState("")
+  //const [lastName,setLastName] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [gender, setGender] = useState("");
+  //const [bday, setBirthday] = useState("");
+  const [validatemsg, setValidateMsg] = useState("");
+  const [validatemsg1, setValidateMsg1] = useState("");
+  const [error, setError] = useState("");
+  const [check, setCheck] = useState(false);
+  const [buttonClick, setButton] = useState(false);
+  const [signupVisible, setSignupVisible] = useState(true);
+  //const [visible, setVisible] = useState(false);
+
+
   const validateEmail = (email) => {
     let regexEmail = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
     if (email.match(regexEmail)) {
@@ -113,25 +113,25 @@ export default function Signup() {
 
     if (validateEmail(email) && check) {
       const body = {
-       
+
         userName,
         email,
         password,
         phoneNumber,
-        gender, 
+        gender,
         address
       };
 
       let url = "http://localhost:1109/signup";
 
       const success = (data) => {
-        
+
         console.log(data);
         if (data) {
-         
+
           setError("User created successfully");
           setSignupVisible(false);
-          
+
 
         }
         setError("");
@@ -140,115 +140,108 @@ export default function Signup() {
         console.log("Error", err);
       };
       axios.post("http://localhost:2000/signup", body).then((response) => {
-      console.log(response)
-    });
-     
-      } 
+        console.log(response)
+      });
+
+    }
   };
 
   return (
     <>
-      <div className="container d-flex flex-column align-items-center mt-5">
+      <div className="container d-flex flex-column align-items-center p-5">
         <div className="card d-flex flex-column align-items-center p-3 shadow-lg">
-         
           <h1 style={{ marginBottom: "30px" }}>Sign Up for SuTa</h1>
-              <Input
-                type="text"
-                placeholder="Enter Name"
-                value={userName}
-                handleChange={(child) => setuserName(child)}
-              />
-              
-              <Input
-                type="email"
-                placeholder="Enter Email"
-                value={email}
-                handleChange={(child) => {
-                  setEmail(child);
-                  validateEmail(child);  
-                }}
-              />
+          <Input
+            type="text"
+            placeholder="Enter Name"
+            value={userName}
+            handleChange={(child) => setuserName(child)}
+          />
+          <Input
+            type="email"
+            placeholder="Enter Email"
+            value={email}
+            handleChange={(child) => {
+              setEmail(child);
+              validateEmail(child);
+            }}
+          />
 
-              <p>{validatemsg1}</p>
-              <Input
-                type="password"
-                placeholder="Enter Password"
-                value={password}
-                handleChange={(child) => {
-                  setPassword(child);
-                  validate(child);
-                }}
-              />
+          <p>{validatemsg1}</p>
+          <Input
+            type="password"
+            placeholder="Enter Password"
+            className="form-control mb-3"
+            value={password}
+            handleChange={(child) => {
+              setPassword(child);
+              validate(child);
+            }}
+          />
+          <PhoneInput
+            className="form-control mb-3 mt-3"
+            placeholder="Enter phone number"
+            value={phoneNumber}
+            onChange={setPhoneNumber} />
+          <div class="row">
+            <label>Gender</label>
+            <input type="radio" id="gender" name="female" value="male" />
+            <label for="female">Female</label>
+            <input type="radio" id="gender" name="male" value="female" />
+            <label for="male">Male</label>
+          </div>
 
-              <Input 
-                type="tel"
-                placeholder="Enter your phone number"
-                pattern="[7-9]{1}[0-9]{9}"
-                value={phoneNumber}
-                handleChange={(child)=>{
-                  setPhoneNumber(child);
-                  //validatephoneNumber(child);
-                }}
-                />
-                <div class="row">
-                  <label>Gender</label>
-                  <input type="radio" id="gender" name="female" value="male"/>
-                  <label for="female">Female</label>
-                  <input type="radio" id="gender" name="male" value="female"/>
-                  <label for="male">Male</label>
-                  </div>
-
-               <Input 
-               type="text"
-               placeholder="Enter address"
-               value={address}
-               handleChange={(child)=>
-                setAddress(child)
-              }
-              />
+          <Input
+            type="text"
+            placeholder="Enter address"
+            value={address}
+            handleChange={(child) =>
+              setAddress(child)
+            }
+          />
 
 
-              <p>{validatemsg}</p>
-              <div style={{ width: "40rem" }} className="d-flex flex-row mt-3">
-                <input type="checkbox" onClick={() => setCheck(!check)} />
-                <p className="font-weight-bold" style={{ fontSize: "10px" }}>
-                  By tapping Sign Up & Accept, you acknowledge that you have
-                  read the Privacy Policy and agree to the Terms of Service.
-                  We'll send you a message to verify this number. Messaging
-                  rates may apply. Snapchatters can always capture or save your
-                  messages, such as by taking a screenshot or using a camera. Be
-                  mindful of what you Snap!
-                </p>
-              </div>
-              <div className="d-flex flex-column justify-content-center mt-3">
-                  <Link to = "/login">
-                  <Button value = "signUp" className="btn btn-primary" handleClick={()=>submitDetails()}></Button>  
-                  </Link>
-              </div>
-                {buttonClick ? (
-                  check ? (
-                    ""
-                  ) : (
-                    <p style={{ color: "red" }}>
-                      please accept terms and conditions
-                    </p>
-                  )
-                ) : (
-                  ""
-                )}
-                {buttonClick ? (
-                  check ? (
-                    <p style={{ color: "green" }}>User created sucessfully</p>
-                  ) : (
-                    ""
-                  )
-                ) : (
-                  ""
-                )}
-              </div>
-        
+          <p>{validatemsg}</p>
+          <div style={{ width: "40rem" }} className="d-flex flex-row mt-3">
+            <input type="checkbox" onClick={() => setCheck(!check)} />
+            <p className="font-weight-bold" style={{ fontSize: "10px" }}>
+              By tapping Sign Up & Accept, you acknowledge that you have
+              read the Privacy Policy and agree to the Terms of Service.
+              We'll send you a message to verify this number. Messaging
+              rates may apply. Snapchatters can always capture or save your
+              messages, such as by taking a screenshot or using a camera. Be
+              mindful of what you Snap!
+            </p>
+          </div>
+          <div className="d-flex flex-column justify-content-center mt-3">
+            <Link to="/login">
+              <Button value="signUp" className="btn btn-primary" handleClick={() => submitDetails()}></Button>
+            </Link>
+          </div>
+          {buttonClick ? (
+            check ? (
+              ""
+            ) : (
+              <p style={{ color: "red" }}>
+                please accept terms and conditions
+              </p>
+            )
+          ) : (
+            ""
+          )}
+          {buttonClick ? (
+            check ? (
+              <p style={{ color: "green" }}>User created sucessfully</p>
+            ) : (
+              ""
+            )
+          ) : (
+            ""
+          )}
         </div>
-     
+
+      </div>
+
     </>
   );
- }
+}
