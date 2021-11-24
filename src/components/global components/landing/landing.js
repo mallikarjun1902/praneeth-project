@@ -6,6 +6,7 @@ import {useDispatch} from "react-redux"
 function Landing() {
   const dispatch=useDispatch()
   const [category, setCategory] = useState([]);
+  const [token,setToken] = useState();
   useEffect(() => {
     dispatch(getAllCategoryList())
     // const headers = {
@@ -32,7 +33,7 @@ console.log("landinf page")
                 <h1 style={{ fontSize: "20px", textAlign: "center" }}>
                   {each?.categoryName}
                 </h1>
-                <Link to="/sarees">
+                <Link to={`/category/${each._id}`}>
                   <img
                     src={each.image}
                     style={{
