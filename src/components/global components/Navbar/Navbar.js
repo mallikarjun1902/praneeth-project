@@ -8,12 +8,16 @@ const NavBar = () => {
 
   const [category,setCategory]=useState([])
 
-  useEffect(() =>{
-    axios.get("http://localhost:1109/category").then((response) => {
-      console.log(response)
-      setCategory(response.data)
-    }).catch((error) => console.log("error",error))
-  },[])
+  // useEffect(() =>{
+  //   const headers = {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `JWT fee.`
+  //   }
+  //   axios.get("http://localhost:1109/category",{headers:headers}).then((response) => {
+  //     console.log(response)
+  //     setCategory(response.data)
+  //   }).catch((error) => console.log("error",error))
+  // },[])
 
   return (
     <>
@@ -87,11 +91,13 @@ const NavBar = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGsPHNDTRSXj2zKf1LQR3pvWEttfSMrN2yw&usqp=CAU"
             style={{ height: "50px", width: "50px" ,padding:"10px" }}
           />
+          <a href="/cart">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dIdyyUTo69D6o_niUIZNG_IZ1GoCgsExybjLwrb7WqduxwgV5p7_PCnVZk2L-P8v-KE&usqp=CAU"
             style={{ height: "50px", width: "50px",padding:"10px" }}
           />
-          < a href = '/trackorder'>
+           </a>
+          <a href = '/trackorder'>
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdR8264afNa5wCMsyZEqkmVEFmR45HmB5fkg&usqp=CAU"
             style={{ height: "50px", width: "50px",padding:"10px" }}

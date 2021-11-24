@@ -4,6 +4,7 @@ import React, { useState,useEffect } from "react";
 // import controller from "../../controller/control";
 // import PhoneInput from "react-phone-number-Input";
 // import Login from "../login/login"
+import phoneNumber from "react-phone-number-input";
 import Button from "../../reusable components/button"
 import Input from "../../reusable components/input"
 import {Link} from "react-router-dom"
@@ -22,19 +23,21 @@ import axios from 'axios'
 
 export default function Signup() {
     
-    const [firstName,setFirstName] = useState("")
-    const [lastName,setLastName] = useState("")
+    const [userName,setuserName] = useState("")
+    //const [lastName,setLastName] = useState("")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [phoneNumber, setPhonenumber] = useState("");
-    const [bday, setBirthday] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [address, setAddress] = useState("");
+    const [gender, setGender] = useState("");
+    //const [bday, setBirthday] = useState("");
     const [validatemsg, setValidateMsg] = useState("");
     const [validatemsg1, setValidateMsg1] = useState("");
     const [error, setError] = useState("");
     const [check, setCheck] = useState(false);
     const [buttonClick, setButton] = useState(false);
     const [signupVisible, setSignupVisible] = useState(true);
-    const [visible, setVisible] = useState(false);
+    //const [visible, setVisible] = useState(false);
   
   
   const validateEmail = (email) => {
@@ -81,6 +84,10 @@ export default function Signup() {
     }
   };
 
+  // const validatephoneNumber = (phoneNumber) => {
+
+  // };
+
   const validate = (password) => {
     // let pswd=this.state.password
     let length = password.length;
@@ -107,12 +114,12 @@ export default function Signup() {
     if (validateEmail(email) && check) {
       const body = {
        
-        firstName,
-        lastName,
+        userName,
         email,
         password,
         phoneNumber,
-        bday,
+        gender, 
+        address
       };
 
       let url = "http://localhost:1109/signup";
@@ -136,41 +143,32 @@ export default function Signup() {
       console.log(response)
     });
      
-      // window.location.href = "/login";
       } 
   };
-
-
 
   return (
     <>
       <div className="container d-flex flex-column align-items-center mt-5">
         <div className="card d-flex flex-column align-items-center p-3 shadow-lg">
          
-          <h1 style={{ marginBottom: "30px" }}>Sign Up for Suta</h1>
+          <h1 style={{ marginBottom: "30px" }}>Sign Up for SuTa</h1>
               <Input
                 type="text"
-                placeholder="Enter firstname"
-                value={firstName}
-                handleChange={(child) => setFirstName(child)}
+                placeholder="Enter Name"
+                value={userName}
+                handleChange={(child) => setuserName(child)}
               />
-               <Input
-                type="text"
-                placeholder="Enter lastName"
-                value={lastName}
-                handleChange={(child) => setLastName(child)}
-              />
+              
               <Input
                 type="email"
                 placeholder="Enter Email"
                 value={email}
-               
                 handleChange={(child) => {
                   setEmail(child);
-                  validateEmail(child);
-                  
+                  validateEmail(child);  
                 }}
               />
+
               <p>{validatemsg1}</p>
               <Input
                 type="password"
@@ -181,6 +179,35 @@ export default function Signup() {
                   validate(child);
                 }}
               />
+
+              <Input 
+                type="tel"
+                placeholder="Enter your phone number"
+                pattern="[7-9]{1}[0-9]{9}"
+                value={phoneNumber}
+                handleChange={(child)=>{
+                  setPhoneNumber(child);
+                  //validatephoneNumber(child);
+                }}
+                />
+                <div class="row">
+                  <label>Gender</label>
+                  <input type="radio" id="gender" name="female" value="male"/>
+                  <label for="female">Female</label>
+                  <input type="radio" id="gender" name="male" value="female"/>
+                  <label for="male">Male</label>
+                  </div>
+
+               <Input 
+               type="text"
+               placeholder="Enter address"
+               value={address}
+               handleChange={(child)=>
+                setAddress(child)
+              }
+              />
+
+
               <p>{validatemsg}</p>
               <div style={{ width: "40rem" }} className="d-flex flex-row mt-3">
                 <input type="checkbox" onClick={() => setCheck(!check)} />

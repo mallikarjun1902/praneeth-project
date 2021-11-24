@@ -3,12 +3,14 @@ import React, { Component, useState } from "react";
 
 
 //Importing Link from React Router Dom
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 //Importing reusable Components 
 import Input from "../../reusable components/input"
 import Button from "../../reusable components/button"
 //imorting axios
 import axios from 'axios'
+import {loginUserAuth} from "../../../store/actions"
+import {useDispatch} from "react-redux"
 /**
  * @authors:"madhavi itikala and Spandana"
  * @returns {Html}
@@ -16,32 +18,25 @@ import axios from 'axios'
  * Implementation of Login Component using States.
  */
 function Login() {
+  const dispatch=useDispatch()
+  const history=useHistory()
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [signupVisible, setSignupVisible] = useState(false);
   const [invalidDetails, setInvalidDetails] = useState(false);
   const onSubmit = () => {
-    // const success = (data) => {
-    //   console.log(data);
-    //   if (data.length == 0) {
-    //     setInvalidDetails(true);
-    //     setError("Invalid credentials");
-    //     // setSignupVisible(true)
-    //   } else {
-    //     setError("");
-    //   }
-
-    //   console.log(data);
-    // };
     
-
     const body = { userName, password };
-    axios.post("http://localhost:1109/login", body).then((response) => {
-      console.log(response)
-      alert("logged in successfully")
-      // window.location.href='/'
-      }).catch(error => setInvalidDetails(true))
+    dispatch(loginUserAuth(body,(data)=>history.push('/')
+    ))
+    
+    // axios.post("http://localhost:1109/login", body).then((response) => {
+    //   console.log(response)
+      
+    //   // alert("logged in successfully")
+    //   // window.location.href='/'
+    //   }).catch(error => setInvalidDetails(true))
 
   };
   
@@ -56,7 +51,7 @@ function Login() {
               style={{ borderRadius: "10px", width: "600px" }}
             >
             
-              <h1 className="heading text-center">Login to Suta</h1>
+              <h1 className="heading text-center">Login to SuTa</h1>
               <div className="form">
                 <label
                   for="email"
