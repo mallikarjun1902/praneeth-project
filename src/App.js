@@ -46,7 +46,7 @@ function App() {
           <Route 
           exact path = "/blouses" render={()=><Blouses/>}/>
           <Route 
-          exact path = "/sarees" render={()=><Sarees/>}/>
+          exact path = "/category/:categoryId" render={()=><Sarees/>}/>
            <Route 
           exact path = "/collections" render={()=><Collections/>}/>
           <Route 

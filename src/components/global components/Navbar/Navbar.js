@@ -4,6 +4,7 @@ import axios from 'axios'
 
 
 const NavBar = () => {
+  
 
   const [category,setCategory]=useState([])
 
@@ -106,7 +107,7 @@ const NavBar = () => {
           <ul class="navbar-nav">
             {category?.map((each)=>(
               <li class="nav-item">
-              <a class="nav-link" href="/sarees">
+              <a class="nav-link" href="/sarees" style = {{textTransform:"uppercase"}}>
                 {each.categoryName}
               </a>
             </li>

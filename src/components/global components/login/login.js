@@ -40,7 +40,7 @@ function Login() {
     axios.post("http://localhost:1109/login", body).then((response) => {
       console.log(response)
       alert("logged in successfully")
-      window.location.href='/'
+      // window.location.href='/'
       }).catch(error => setInvalidDetails(true))
 
   };

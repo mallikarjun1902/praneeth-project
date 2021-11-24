@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 function Landing() {
   const [category, setCategory] = useState([]);
+  const [token,setToken] = useState();
   useEffect(() => {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': ''
+    }
     axios
-      .get("http://localhost:1109/category")
+      .get("http://localhost:1109/category",{headers:headers})
       .then((response) => {
           setCategory(response.data)
+          
         console.log(response);
       })
       .catch((error) => console.log(error));
@@ -24,7 +30,7 @@ function Landing() {
                 <h1 style={{ fontSize: "20px", textAlign: "center" }}>
                   {each?.categoryName}
                 </h1>
-                <Link to="/sarees">
+                <Link to={`/category/${each._id}`}>
                   <img
                     src={each.image}
                     style={{
