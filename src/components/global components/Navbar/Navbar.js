@@ -1,6 +1,19 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios'
+
+
 const NavBar = () => {
+
+  const [category,setCategory]=useState([])
+
+  useEffect(() =>{
+    axios.get("http://localhost:1109/category").then((response) => {
+      console.log(response)
+      setCategory(response.data)
+    }).catch((error) => console.log("error",error))
+  },[])
+
   return (
     <>
       <div class="topnav d-flex flex-row justify-content-between align-items-center">
@@ -77,12 +90,14 @@ const NavBar = () => {
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dIdyyUTo69D6o_niUIZNG_IZ1GoCgsExybjLwrb7WqduxwgV5p7_PCnVZk2L-P8v-KE&usqp=CAU"
             style={{ height: "50px", width: "50px",padding:"10px" }}
-          /></a>
-          <a href="/trackorder">
-          <img 
+          />
+           </a>
+          <a href = '/trackorder'>
+          <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdR8264afNa5wCMsyZEqkmVEFmR45HmB5fkg&usqp=CAU"
             style={{ height: "50px", width: "50px",padding:"10px" }}
-          /></a>
+          />
+          </a>
         </div>
       </div>
       <nav
@@ -91,55 +106,15 @@ const NavBar = () => {
       >
         <div class="container-fluid d-flex flex-row justify-content-center justify-content-space-between">
           <ul class="navbar-nav">
-            <li class="nav-item">
+            {category?.map((each)=>(
+              <li class="nav-item">
               <a class="nav-link" href="/sarees">
-                SAREES
+                {each.categoryName}
               </a>
             </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/blouses">
-                BLOUSES
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/menswear">
-                MEN'S WEAR
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/collections">
-                COLLECTIONS
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/accessories">
-                ACCESSORIES
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/loungewear">
-                LOUNGE WEAR
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/dresses">
-                DRESSES
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/homeliving">
-                HOME & LIVING
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/bestseller">
-                BEST SELLER
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">
+            ))}
+           <li class="nav-item">
+              <a class="nav-link" href="about">
                 ABOUT US
               </a>
             </li>
