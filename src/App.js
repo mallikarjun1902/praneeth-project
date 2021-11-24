@@ -26,6 +26,7 @@ import Sarees1 from "./components/products/saree1"
 import Trackorder from "./components/global components/order/trackorder"
 
 import Landing from "./components/global components/landing/landing"
+import Cart from "./components/global components/cart/cart"
 
 function App() {
   
@@ -72,6 +73,9 @@ function App() {
 
           <Route
            exact path="/trackorder" render={() => <Trackorder />} />
+
+          <Route
+           exact path="/cart" render={() => <Cart />} />
 
         </Switch>
 
