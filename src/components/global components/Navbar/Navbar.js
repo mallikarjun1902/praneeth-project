@@ -4,13 +4,11 @@ import axios from 'axios'
 import {useDispatch,useSelector} from "react-redux"
 import {getAllCategoryList} from "../../../store/actions"
 const NavBar = () => {
-  
-  const categoryList = useSelector((state) =>state?.category?.category)
-  
-  const dispatch=useDispatch()
- useEffect(()=>{
-   dispatch(getAllCategoryList())
- })
+    const dispatch=useDispatch()
+    const categoryList=useSelector((state) =>state?.category?.category)
+    useEffect(() => {
+      dispatch(getAllCategoryList())
+    },[])
   
 
   return (

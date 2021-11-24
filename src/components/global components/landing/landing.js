@@ -19,8 +19,8 @@ console.log("landinf page")
     <>
       <div class="container d-flex">
         <div class="row">
-            
-          {categoryList ?.map((each) => ( 
+           
+          {categoryList?.map((each) => ( 
             <div className="col-4">
               <div>
                 <h1 style={{ fontSize: "20px", textAlign: "center" }}>
@@ -44,5 +44,6 @@ console.log("landinf page")
     </>
   );
 }
+  
 
 export default Landing;

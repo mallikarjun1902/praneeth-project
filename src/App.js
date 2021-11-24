@@ -21,7 +21,7 @@ import Navbar from "./components/global components/Navbar/Navbar"
 import Footer from "./components/global components/footer/footercomponents"
 
 import NavBar from "./components/global components/Navbar/Navbar"
-import Sarees1 from "./components/products/saree1"
+import Saree1 from "./components/products/saree1"
 
 import Trackorder from "./components/global components/order/trackorder"
 
@@ -48,6 +48,8 @@ function App() {
           exact path = "/blouses" render={()=><Blouses/>}/>
           <Route 
           exact path = "/category/:categoryId" render={()=><Sarees/>}/>
+          <Route 
+          exact path = "/category/description/:categoryId" render={()=><Saree1/>}/>
            <Route 
           exact path = "/collections" render={()=><Collections/>}/>
           <Route 
@@ -69,7 +71,7 @@ function App() {
            exact path="/footer" render={() => <Footer />} />
 
           <Route
-           exact path="/products/1" render={() => <Sarees1 />} />
+           exact path="/products/1" render={() => <Saree1 />} />
 
           <Route
            exact path="/trackorder" render={() => <Trackorder />} />

@@ -1,94 +1,45 @@
-import React, { Component ,useState,useEffect} from 'react';
-import axios from "axios";
-function Sarees () {
-    const[item,eachItem] = useState([])
-    useEffect(() => {
-        axios
-          .get("http://localhost:1109/category")
-          .then((response) => {
-              eachItem(response.data)
-            console.log(response);
+import React, { Component,useEffect } from 'react';
+import {getAllProductList} from '../../store/actions'
+import {useDispatch,useSelector} from 'react-redux'
+import {Link} from 'react-router-dom';
+function Sarees() {
+    let url = "619dd0abc0447210a8aa9f62"
+    const categoryId = window.location.pathname.split('/')[2]
+   
+    const productList = useSelector((state) =>state?.product?.product)
+    const filteredProducts=productList.filter((a)=>a.categoryId===categoryId) 
+  
+    const dispatch=useDispatch()
 
-          })
-          .catch((error) => console.log(error));
-      },[]);
-
- const renderPage = ()=>{
-    window.location.href = "/products/1"
+  const renderPage = ()=>{
+   
     // window.location.pathname.split("/")[2]
 }
+useEffect(()=>{
+    dispatch(getAllProductList())
+    
+},[])
+
 
    
         return (
     
             <div>
-                    {console.log(item)} 
-                 <h1 style = {{textAlign: 'center',padding:'10px'}}>All sarees</h1>
+
         <div className="container d-flex flex-column p-3">
             <div className="row justify-content-between">
-                <div className=" col-lg-4"  >
-                    <div className = "d-flex flex-column">
-                <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/dreaming-of-ocean-271942_900x.jpg?v=1637333747" onClick = {()=>renderPage()} style = {{width:"20vw",height:"40vh",marginRight:"2px"}}/>
-               <h1 style = {{fontSize:"20px",marginTop:"15px"}}>DREAMING OF OCEAN (SAREE)</h1>
-               <p>RS.2,800.00</p>
-                </div>
-                </div>
-                <div className="col-4" >
-                <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/chandrabala-952191_800x.jpg?v=1637157451" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>CHANDRABALA</h1>
-               <p>RS.7,200.00</p>
-                </div>
-                </div>
-                <div className="col-4" >
-                <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/scorpio-stars-582578_800x.jpg?v=1637158243" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>SCORPIO STARS</h1>
-               <p>RS.6,300.00</p>
-                </div>
-                </div>
-                <div className="col-4" >
-                <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/shakha-pola-191698_800x.jpg?v=1637158305" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>SHAKHA POLA</h1>
-               <p>RS.3,090.00</p>
-                </div>
-                </div>
-                <div className="col-4" >
-                <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/chondon-bindi-178996_800x.jpg?v=1637157450" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>CHONDON BINDI</h1>
-               <p>RS.3,090.00</p>
-                </div>
-                </div>
-                <div className="col-4" >
-                <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/kumkum-bindi-802458_800x.jpg?v=1637157827" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>KUMKUM BINDI</h1>
-               <p>RS.3,090.00</p>
-                </div>
-                </div>
-                <div className="col-4" >
-                <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/do-lafzon-ki-kahaani-646272_800x.jpg?v=1637244813" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>DO LAFZON KI KAHAANI</h1>
-               <p>RS. 12,000.00</p>
-                </div>
-                </div>
-                <div className="col-4" >
-                <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/kora-kaagaz-106984_800x.jpg?v=1637244899" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>KORA KAAGAZ (SAREE)</h1>
-               <p>RS. 12,000.00</p>
-                </div>
-                </div>
-                <div className="col-4" >
-                <div className = "d-flex flex-column">
-                    <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/when-night-falls-833804_800x.jpg?v=1636893123" style = {{width:"20vw",height:"40vh"}}/>
-                    <h1 style = {{fontSize:"15px",marginTop:"15px"}}>WHEN NIGHT FALLS</h1>
-               <p>RS. 2,300.00</p>
-                </div>
-                </div>
+                {filteredProducts.map((each)=>(
+                     <div className=" col-lg-4"  >
+                     <div className = "d-flex flex-column">
+                     <Link to={`/category/description/${each._id}`}>
+                 <img src = {each.image} style = {{width:"20vw",height:"40vh",marginRight:"2px"}}/>
+                 </Link>
+                <h1 style = {{fontSize:"20px",marginTop:"15px"}}>{each.productName}</h1>
+                <p>{each.offerPrice}</p>
+                 </div>
+                 </div> 
+                ))}
+                
             </div>
         </div>
             </div>
