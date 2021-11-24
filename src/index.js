@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Footer from './components/global components/footer/footercomponents';
 import NavBar from "./components/global components/Navbar/Navbar";
-import Footer from "./components/global components/footer/footercomponents"
+
 ReactDOM.render(
   <React.StrictMode>
    <NavBar/>
