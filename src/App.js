@@ -30,6 +30,8 @@ import Trackorder from "./components/global components/order/trackorder";
 import Landing from "./components/global components/landing/landing";
 import Cart from "./components/global components/cart/cart";
 import ErrorPage from "./components/global components/errorPage/errorPage"
+import Product from "./components/admin/product"
+import Category from "./components/admin/category"
 
 function App() {
   const isLoggedIn=useSelector((state) =>state.user?.isLoggedIn)
@@ -43,6 +45,8 @@ if(pageStr==="login" || pageStr==="signup" || isLoggedIn){
         <Footer />
       </>
     );
+
+
 }
 else{
   console.log("else...",Page,pageStr)
@@ -62,6 +66,8 @@ else{
     <>
       <Router>
         <Switch>
+        <Route exact path="/add/product" render={() => pageRender(Product,"admin")} />
+        <Route exact path="/add/category" render={() => pageRender(Category,'admin')} />
           <Route exact path="/signup" render={() => pageRender(Signup,"signup")} />
           <Route exact path="/" render={() => pageRender(Landing)} />
 
@@ -90,6 +96,8 @@ else{
           <Route exact path="/trackorder" render={() =>pageRender(Trackorder)} />
 
           <Route exact path="/cart" render={() => pageRender(Cart)} />
+          
+
         </Switch>
       </Router>
     </>
