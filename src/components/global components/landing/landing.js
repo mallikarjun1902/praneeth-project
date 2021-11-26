@@ -14,7 +14,6 @@ function Landing() {
     dispatch(getAllCategoryList())
    
   },[]);
-console.log("landinf page")
   return (
     <>
       <div class="container d-flex">
