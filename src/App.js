@@ -2,6 +2,8 @@
 import React from "react";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {useSelector} from  "react-redux"
+
 import Login from "./components/global components/login/login";
 import Signup from "./components/global components/signup/signup";
 import Forget from "./components/global components/forget/forget";
@@ -27,26 +29,43 @@ import Trackorder from "./components/global components/order/trackorder";
 
 import Landing from "./components/global components/landing/landing";
 import Cart from "./components/global components/cart/cart";
+import ErrorPage from "./components/global components/errorPage/errorPage"
 
 function App() {
-  const pageRender = (Page) => {
-    return (
+  const isLoggedIn=useSelector((state) =>state.user?.isLoggedIn)
+  const pageRender = (Page,pageStr) => {
+if(pageStr==="login" || pageStr==="signup" || isLoggedIn){
+  console.log("if....",Page)
+  return (
       <>
       <NavBar/>
         <Page />
         <Footer />
       </>
     );
+}
+else{
+  console.log("else...",Page,pageStr)
+
+  return (
+    <>
+    <NavBar/>
+      <ErrorPage />
+      <Footer />
+    </>
+  );
+}
+    
   };
 
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path="/signup" render={() => pageRender(Signup)} />
+          <Route exact path="/signup" render={() => pageRender(Signup,"signup")} />
           <Route exact path="/" render={() => pageRender(Landing)} />
 
-          <Route exact path="/login" render={() =>pageRender(Login) } />
+          <Route exact path="/login" render={() =>pageRender(Login,"login") } />
           <Route exact path="/forget" render={() =>pageRender(Forget)} />
           <Route exact path="/blouses" render={() =>pageRender(Blouses) } />
           <Route exact path="/category/:categoryId" render={() =>pageRender(Sarees)} />
