@@ -1,9 +1,6 @@
 //Importing React Component from react library
 import React, { useState, useEffect } from "react";
-//import User Components from Local Files
-// import controller from "../../controller/control";
-// import PhoneInput from "react-phone-number-Input";
-// import Login from "../login/login"
+
 import PhoneInput from "react-phone-number-input";
 import Button from "../../reusable components/button"
 import Input from "../../reusable components/input"
@@ -24,20 +21,17 @@ import axios from 'axios'
 export default function Signup() {
 
   const [userName, setuserName] = useState("")
-  //const [lastName,setLastName] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [gender, setGender] = useState("");
-  //const [bday, setBirthday] = useState("");
   const [validatemsg, setValidateMsg] = useState("");
   const [validatemsg1, setValidateMsg1] = useState("");
   const [error, setError] = useState("");
   const [check, setCheck] = useState(false);
   const [buttonClick, setButton] = useState(false);
   const [signupVisible, setSignupVisible] = useState(true);
-  //const [visible, setVisible] = useState(false);
 
 
   const validateEmail = (email) => {
@@ -84,12 +78,8 @@ export default function Signup() {
     }
   };
 
-  // const validatephoneNumber = (phoneNumber) => {
-
-  // };
-
   const validate = (password) => {
-    // let pswd=this.state.password
+  
     let length = password.length;
 
     if (
@@ -99,11 +89,11 @@ export default function Signup() {
       specialTest(password) &&
       isNumber(password)
     ) {
-      // console.log("Strong password")
+      
       setValidateMsg("strong password");
       return true;
     } else {
-      // console.log("Please enter a valid password")
+      
       setValidateMsg("Please enter a valid password");
       return false;
     }

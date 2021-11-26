@@ -1,8 +1,8 @@
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {getAllCategoryList} from "../../../store/actions"
-import {useDispatch,useSelector} from "react-redux"
+import { getAllCategoryList } from "../../../store/actions"
+import { useDispatch, useSelector } from "react-redux"
 function Landing() {
   const categoryList = useSelector((state) =>state?.category?.category)
   const loggedState = useSelector((state) => state?.user?.isLoggedIn)
@@ -49,6 +49,6 @@ function Landing() {
     </>
   );
 }
-  
+
 
 export default Landing;
