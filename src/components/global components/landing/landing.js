@@ -5,6 +5,7 @@ import {getAllCategoryList} from "../../../store/actions"
 import {useDispatch,useSelector} from "react-redux"
 function Landing() {
   const categoryList = useSelector((state) =>state?.category?.category)
+  const loggedState = useSelector((state) => state?.user?.isLoggedIn)
   
   // const data = categoryList.data
   // console.log(data)
@@ -16,6 +17,7 @@ function Landing() {
   },[]);
   return (
     <>
+    {loggedState?<>
       <div class="container d-flex">
         <div class="row">
            
@@ -40,6 +42,10 @@ function Landing() {
   ))}
         </div>
       </div>
+    </>:<>
+    {""}
+    </>}
+     
     </>
   );
 }
