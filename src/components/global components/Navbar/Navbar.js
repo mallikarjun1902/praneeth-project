@@ -6,6 +6,8 @@ import {getAllCategoryList} from "../../../store/actions"
 const NavBar = () => {
     const dispatch=useDispatch()
     const categoryList=useSelector((state) =>state?.category?.category)
+    const loggedState = useSelector((state) =>state?.user?.isLoggedIn)
+    console.log(loggedState)
     useEffect(() => {
       dispatch(getAllCategoryList())
     },[])
@@ -97,7 +99,8 @@ const NavBar = () => {
           </a>
         </div>
       </div>
-      <nav
+      {loggedState?<>
+        <nav
         class="navbar navbar-expand-sm  navbar-light"
         style={{ backgroundColor: "#e3f2fd" }}
       >
@@ -121,6 +124,23 @@ const NavBar = () => {
           </ul>
         </div>
       </nav>
+      </>:<>
+      <nav
+        class="navbar navbar-expand-sm  navbar-light"
+        style={{ backgroundColor: "#e3f2fd" }}
+      >
+        <div class="container-fluid d-flex flex-row justify-content-center justify-content-space-between">
+          <ul class="navbar-nav">
+           <li class="nav-item">
+              <a class="nav-link" href="about">
+                ABOUT US
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      </>}
+      
     </>
   );
 };

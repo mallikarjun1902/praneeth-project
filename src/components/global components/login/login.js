@@ -28,8 +28,10 @@ function Login() {
   const onSubmit = () => {
     
     const body = { userName, password };
-    dispatch(loginUserAuth(body,()=>history.push('/')
-    ))
+    dispatch(loginUserAuth(body,()=>{
+    alert("logged in successfully")
+    history.push('/')
+    }))
     
     // axios.post("http://localhost:1109/login", body).then((response) => {
     //   console.log(response)
@@ -82,7 +84,7 @@ function Login() {
                 <Link to="/forget">
                   <p className="col-12 text-right">Forget Password?</p>
                 </Link>
-
+                <Link to="/signup">Create account</Link>
                 <div className="d-flex flex-column align-items-center">
                   
                   <Button
@@ -92,8 +94,9 @@ function Login() {
                   >Submit</Button>   
                
                 </div>
+               
                 <p className="text-danger">{error}</p>
-                {invalidDetails ? <a href="/signup">Create account</a> : ""}
+                
                
               </div>
             </div>
