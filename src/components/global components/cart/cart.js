@@ -1,5 +1,6 @@
 //Importing React component from React Library
 import React, { Component, useState } from "react";
+import axios from "axios";
 function Cart() {
 	const [value, setValue] = useState(1);
 
