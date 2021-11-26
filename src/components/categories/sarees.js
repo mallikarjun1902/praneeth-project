@@ -3,12 +3,12 @@ import {getAllProductList} from '../../store/actions'
 import {useDispatch,useSelector} from 'react-redux'
 import {Link} from 'react-router-dom';
 function Sarees() {
-    let url = "619dd0abc0447210a8aa9f62"
+    // let url = "619dd0abc0447210a8aa9f62"
     const categoryId = window.location.pathname.split('/')[2]
    
     const productList = useSelector((state) =>state?.product?.product)
     const filteredProducts=productList.filter((a)=>a.categoryId===categoryId) 
-  
+  console.log("specfic product values",filteredProducts)
     const dispatch=useDispatch()
 
   const renderPage = ()=>{
