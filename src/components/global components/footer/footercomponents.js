@@ -1,9 +1,16 @@
+//import User Components from Local Files
 import React, { Component } from 'react';
+
+/**
+ * @author:"Madhavi itikala and Spandana"
+ * @returns {Html}
+ * Implementation of Forgot Component, If user forgot password then we redirect this page.
+ */
 
 class Footer extends Component {
 	render() {
 		return (
-			<div style={{ backgroundColor: "grey", color: "white", font: "castellar", padding: "20px" }}>
+			<div style={{ back groundColor: "grey", color: "white", font: "castellar", padding: "20px" }}>
 				<footer class="page-footer font-small pt-4">
 
 					<div class="container-fluid text-center text-md-left">

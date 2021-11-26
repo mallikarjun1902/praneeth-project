@@ -34,8 +34,8 @@ import ErrorPage from "./components/global components/errorPage/errorPage"
 function App() {
   const isLoggedIn=useSelector((state) =>state.user?.isLoggedIn)
   const pageRender = (Page,pageStr) => {
-if(pageStr==="login" || pageStr==="signup" || isLoggedIn){
-  console.log("if....",Page)
+if(pageStr==="login" || pageStr==="signup" || pageStr==="about" || isLoggedIn ){
+  // console.log("if....",Page)
   return (
       <>
       <NavBar/>
@@ -45,7 +45,7 @@ if(pageStr==="login" || pageStr==="signup" || isLoggedIn){
     );
 }
 else{
-  console.log("else...",Page,pageStr)
+  // console.log("else...",Page,pageStr)
 
   return (
     <>
@@ -81,7 +81,7 @@ else{
           <Route exact path="/loungewear" render={() => pageRender(Loungewear)} />
           <Route exact path="/menswear" render={() => pageRender(Menswear)} />
           <Route exact path="/bestseller" render={() =>pageRender(Bestseller)} />
-          <Route exact path="/about" render={() => pageRender(About)} />
+          <Route exact path="/about" render={() => pageRender(About,"about")} />
 
           <Route exact path="/footer" render={() =>pageRender(Footer)} />
 

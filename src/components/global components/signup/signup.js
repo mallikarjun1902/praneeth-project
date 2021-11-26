@@ -1,9 +1,6 @@
 //Importing React Component from react library
 import React, { useState, useEffect } from "react";
 //import User Components from Local Files
-// import controller from "../../controller/control";
-// import PhoneInput from "react-phone-number-Input";
-// import Login from "../login/login"
 import PhoneInput from "react-phone-number-input";
 import Button from "../../reusable components/button"
 import Input from "../../reusable components/input"
