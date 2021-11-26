@@ -105,9 +105,12 @@ const NavBar = () => {
           <ul class="navbar-nav">
             {categoryList?.map((each)=>(
               <li class="nav-item">
-              <a class="nav-link" href="/sarees" style = {{textTransform:"uppercase"}}>
+                <Link class="nav-link" to={`/category/${each._id}`} style = {{textTransform:"uppercase"}}>
                 {each.categoryName}
-              </a>
+                </Link>
+              {/* <a class="nav-link" href="/sarees" style = {{textTransform:"uppercase"}}>
+                {each.categoryName}
+              </a> */}
             </li>
             ))}
            <li class="nav-item">
