@@ -27,6 +27,8 @@ import Trackorder from "./components/global components/order/trackorder"
 
 import Landing from "./components/global components/landing/landing"
 import Cart from "./components/global components/cart/cart"
+import Product from './components/admins/product'
+import Category from './components/admins/category'
 
 function App() {
   
@@ -35,6 +37,10 @@ function App() {
       <Router>
       <Switch>
 
+          <Route
+           exact path="/product" render={() => <Product />} />
+           <Route
+           exact path="/category" render={() => <Category />} />
           <Route
            exact path="/signup" render={() => <Signup />} />
           <Route
