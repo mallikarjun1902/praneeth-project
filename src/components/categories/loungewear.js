@@ -34,7 +34,7 @@ class Loungewear extends Component {
            <div className="col-4" >
            <div className = "d-flex flex-column">
                <img src = "https://cdn.shopify.com/s/files/1/0026/6544/7536/products/pause-and-relax-kaftan-122244_400x.jpg?v=1622602119" style = {{width:"20vw",height:"60vh"}}/>
-               <h1 style = {{fontSize:"15px",marginTop:"15px"}}>PAUSE AND RELAX (KAFTAN)</h1>
+               <h1 style = {{fontSize:"15px",marginTop:"15px"}}>    </h1>
           <p>RS.3,090.00</p>
           <p>Available Sizes: XS S M L XL XXL</p>
            </div>
