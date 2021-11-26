@@ -51,45 +51,6 @@ function App() {
           <Route exact path="/blouses" render={() =>pageRender(Blouses) } />
           <Route exact path="/category/:categoryId" render={() =>pageRender(Sarees)} />
           <Route
-<<<<<<< HEAD
-           exact path="/product" render={() => <Product />} />
-           <Route
-           exact path="/category" render={() => <Category />} />
-          <Route
-           exact path="/signup" render={() => <Signup />} />
-          <Route
-           exact path="/" render={() => <Landing />} />
-
-          <Route 
-          exact path="/login" render={ ()=><Login/>}/>
-          <Route 
-          exact path="/forget" render={() => <Forget />} />
-          <Route 
-          exact path = "/blouses" render={()=><Blouses/>}/>
-          <Route 
-          exact path = "/category/:categoryId" render={()=><Sarees/>}/>
-          <Route 
-          exact path = "/category/description/:categoryId" render={()=><Saree1/>}/>
-           <Route 
-          exact path = "/collections" render={()=><Collections/>}/>
-          <Route 
-          exact path = "/accessories" render={()=><Accessories/>}/>
-         <Route 
-          exact path = "/dresses" render={()=><Dresses/>}/>
-           <Route 
-          exact path = "/homeliving" render={()=><HomeLiving/>}/>
-        <Route 
-          exact path = "/loungewear" render={()=><Loungewear/>}/>
-          <Route 
-          exact path = "/menswear" render={()=><Menswear/>}/>
-          <Route 
-          exact path = "/bestseller" render={()=><Bestseller/>}/>
-          <Route 
-          exact path = "/about" render={()=><About/>}/>
-
-           <Route
-           exact path="/footer" render={() => <Footer />} />
-=======
             exact
             path="/category/product/:productId"
             render={() => pageRender(Saree1)}
@@ -102,7 +63,6 @@ function App() {
           <Route exact path="/menswear" render={() => pageRender(Menswear)} />
           <Route exact path="/bestseller" render={() =>pageRender(Bestseller)} />
           <Route exact path="/about" render={() => pageRender(About)} />
->>>>>>> b5b67797824533b9a55046c514affece3e9d3ee8
 
           <Route exact path="/footer" render={() =>pageRender(Footer)} />
 
