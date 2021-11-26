@@ -43,15 +43,14 @@ function Login() {
 
   return (
     <>
-      <div className="container mt-5">
-        <div className="row d-flex flex-row justify-content-center align-items-center">
-          <div className="d-flex flex-column justify-content-center">
-            <div
-              className="card p-3 shadow-lg"
-              style={{ borderRadius: "10px", width: "600px" }}
-            >
+      <div className="container d-flex flex-row mt-5 shadow-lg">
+          <div className="col-6 w-75 p-5">
+          <img style={{height:"300px"}} src="https://cdn.shopify.com/s/files/1/0026/6544/7536/t/109/assets/suta_ladies.png?v=17381125549598482878"/>
+          </div>
             
-              <h1 className="heading text-center">Login to SuTa</h1>
+            <div className="col-6 w-75 p-5">
+              <h1 className="heading text-center">LOGIN</h1>
+              <p className={{fontSize:"5px"}}>Please enter your e-mail and password:</p>
               <div className="form">
                 <label
                   for="email"
@@ -80,17 +79,19 @@ function Login() {
                   handleChange={(child) => setPassword(child)}
                 />
                 <Link to="/forget">
-                  <p className="col-12 text-right">Forget Password?</p>
+                  <p className="col-12 text-right">Forgot Password?</p>
                 </Link>
 
                 <div className="d-flex flex-column align-items-center">
                   
                   <Button
-                    className="btn btn-primary"
+                    className="btn btn-dark"
                     handleClick={() => onSubmit()}
-                    value="Submit"
-                  >Submit</Button>   
-               
+                    value="LOGIN"
+                  >Submit</Button> 
+                  <Link to="/signup">  
+               <p className="mt-3">Don't have an account? Create one</p>
+               </Link>
                 </div>
                 <p className="text-danger">{error}</p>
                 {invalidDetails ? <a href="/signup">Create account</a> : ""}
@@ -98,8 +99,7 @@ function Login() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+
     </>
   );
 }
