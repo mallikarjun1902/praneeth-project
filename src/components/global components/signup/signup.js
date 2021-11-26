@@ -148,9 +148,13 @@ export default function Signup() {
 
   return (
     <>
-      <div className="container d-flex flex-column align-items-center p-5">
-        <div className="card d-flex flex-column align-items-center p-3 shadow-lg">
-          <h1 style={{ marginBottom: "30px" }}>Sign Up for SuTa</h1>
+      <div className="container d-flex flex-row align-items-center p-5 mt-3 shadow-lg">
+          <div className="col-6 w-75 p-5" >
+            <img style={{height:"300px"}} src="https://cdn.shopify.com/s/files/1/0026/6544/7536/t/109/assets/suta_ladies.png?v=17381125549598482878"/>
+          </div>
+          <div className="col-6 w-75 p-3">
+          <h1 class="mb-3">REGISTER</h1>
+          <p>Please fill in the information below:</p>
           <Input
             type="text"
             placeholder="Enter Name"
@@ -166,7 +170,6 @@ export default function Signup() {
               validateEmail(child);
             }}
           />
-
           <p>{validatemsg1}</p>
           <Input
             type="password"
@@ -183,14 +186,16 @@ export default function Signup() {
             placeholder="Enter phone number"
             value={phoneNumber}
             onChange={setPhoneNumber} />
-          <div class="row">
-            <label>Gender</label>
-            <input type="radio" id="gender" name="female" value="male" />
-            <label for="female">Female</label>
-            <input type="radio" id="gender" name="male" value="female" />
-            <label for="male">Male</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+            <label class ="form-check-label" for="flexRadioDefault1">
+            Female
+            </label>
+            <input class="form-check-input ml-1" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+            <label class ="form-check-label ml-3" for="flexRadioDefault1">
+            Male
+            </label>
           </div>
-
           <Input
             type="text"
             placeholder="Enter address"
@@ -198,24 +203,17 @@ export default function Signup() {
             handleChange={(child) =>
               setAddress(child)
             }
-          /> 
-
-
+          />
           <p>{validatemsg}</p>
           <div style={{ width: "40rem" }} className="d-flex flex-row mt-3">
             <input type="checkbox" onClick={() => setCheck(!check)} />
             <p className="font-weight-bold" style={{ fontSize: "10px" }}>
-              By tapping Sign Up & Accept, you acknowledge that you have
-              read the Privacy Policy and agree to the Terms of Service.
-              We'll send you a message to verify this number. Messaging
-              rates may apply. Snapchatters can always capture or save your
-              messages, such as by taking a screenshot or using a camera. Be
-              mindful of what you Snap!
+              Accept Terms and Conditions
             </p>
           </div>
           <div className="d-flex flex-column justify-content-center mt-3">
             <Link to="/login">
-              <Button value="signUp" className="btn btn-primary" handleClick={() => submitDetails()}></Button>
+              <Button value="CREATE MY ACCOUNT" className="btn btn-dark" handleClick={() => submitDetails()}></Button>
             </Link>
           </div>
           {buttonClick ? (
@@ -241,7 +239,6 @@ export default function Signup() {
         </div>
 
       </div>
-
     </>
   );
 }
