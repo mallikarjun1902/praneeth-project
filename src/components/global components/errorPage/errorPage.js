@@ -1,30 +1,43 @@
-import React from "react";
-import errorImg from "./error.png";
+import React,{ Component,useEffect }  from "react";
 import {Link } from "react-router-dom"
+import {getAllProductList} from '.././../../store/actions'
+import {useDispatch,useSelector} from 'react-redux'
+function Errorpage () {
+  const dispatch=useDispatch()
+  const productList = useSelector((state) =>state?.product?.product)
+  console.log(productList.length) 
+  useEffect(()=>{
+    dispatch(getAllProductList())
+    
+},[])
 
-const Errorpage = () => {
   return (
     <>
-      <div className=" container row">
-        <div className="col-4">
-          <div>
-            <h1 className="text-dark display-1 mt-4">401!</h1>
-            <h4 className="mb-4">Please Authenticate!</h4>
-            <p className="mb-5">
-              Login or register to Get Started with SUTA
-            </p>
-            <Link
-              className="btn btn-primary mb-5 waves-effect waves-light"
-              to="/login"
-            >
-              <i className="mdi mdi-home"></i> Back to login
-            </Link>
-          </div>
+      <div>
+
+<div className="container d-flex flex-column p-3">
+    <div className="row justify-content-between">
+        {productList.map((each,index)=>{
+          if(index<12){
+          return (
+          
+            <div className=" col-lg-4"  >
+            <div className = "d-flex flex-column">
+            <Link to={'/login'}>
+        <img src = {each.image[0]} style = {{width:"20vw",height:"40vh",marginRight:"2px"}}/>
+        </Link>
+       <h1 style = {{fontSize:"20px",marginTop:"15px"}}>{each.productName}</h1>
+       <p>{each.offerPrice}</p>
         </div>
-        <div className="col-lg-5">
-          <img src={errorImg} alt="" className="img-fluid mx-auto d-block" />
-        </div>
-      </div>
+        </div> 
+)
+          }
+          
+         })}
+        
+    </div>
+</div>
+    </div>
     </>
   );
 };
