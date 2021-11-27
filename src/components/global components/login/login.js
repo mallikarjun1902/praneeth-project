@@ -52,38 +52,43 @@ function Login() {
             
             <div className="col-6 w-75 p-5">
               <h1 className="heading text-center">LOGIN</h1>
-              <p className={{fontSize:"5px"}}>Please enter your e-mail and password:</p>
+              {/* <p className={{fontSize:"5px"}}>Please enter your e-mail and password:</p> */}
               <div className="form">
-                <label
+                {/* <label
                   for="email"
                   className="col-12 font-weight-bold"
                   style={{ fontSize: "10px" }}
                 >
                   Username or Email
-                </label>
+                </label> */}
                 <Input
                   className="form-control col-12"
                   id="email"
                   type="text"
+                  placeholder="Enter username"
                   handleChange={(child) => setUserName(child)}
                 />
-                <label
+                {/* <label
                   for="passsword"
                   className="col-12 font-weight-bold"
                   style={{ fontSize: "10px" }}
                 >
                   Password
-                </label>
+                </label> */}
                 <Input
                   className="form-control col-12"
                   id="password"
                   type="password"
+                  placeholder="Enter password"
                   handleChange={(child) => setPassword(child)}
                 />
-                <Link to="/forget">
-                  <p className="col-12 text-right">Forgot Password?</p>
+                <div style={{display: "flex",justifyContent: "space-between"}}>
+                  <Link to="/forget">
+                  <p>Forgot Password?</p>
                 </Link>
-                <Link to="/signup">Create account</Link>
+                {/* <Link to="/signup">Create account</Link> */}
+                </div>
+                
                 <div className="d-flex flex-column align-items-center">
                   
                   <Button
@@ -91,9 +96,9 @@ function Login() {
                     handleClick={() => onSubmit()}
                     value="LOGIN"
                   >Submit</Button> 
-                  <Link to="/signup">  
-               <p className="mt-3">Don't have an account? Create one</p>
-               </Link>
+                  
+               <p className="mt-3">Don't have an account?<Link to="/signup">Create one</Link></p>
+               
                 </div>
                
                 <p className="text-danger">{error}</p>

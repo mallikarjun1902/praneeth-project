@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 class Footer extends Component {
 	render() {
 		return (
-			<div style={{ back groundColor: "grey", color: "white", font: "castellar", padding: "20px" }}>
+			<div style={{ backgroundColor: "grey", color: "white", font: "castellar", padding: "20px" }}>
 				<footer class="page-footer font-small pt-4">
 
 					<div class="container-fluid text-center text-md-left">

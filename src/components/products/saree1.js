@@ -10,15 +10,12 @@ function Saree1() {
 
 	const decrementValue = () => {
 		if (value === 1) {
-			// this.setState({value:1})
 			setValue(1);
 		} else {
-			// this.setState({value:value-1})
 			setValue(value - 1);
 		}
 	};
 	const incrementValue = () => {
-		// this.setState({value:value+1})
 		setValue(value + 1);
 	};
 
