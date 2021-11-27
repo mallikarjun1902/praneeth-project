@@ -7,6 +7,8 @@ const NavBar = () => {
     const dispatch=useDispatch()
     const categoryList=useSelector((state) =>state?.category?.category)
     const loggedState = useSelector((state) =>state?.user?.isLoggedIn)
+    const userRole = useSelector((state) =>state?.user?.userdata?.role) || "admin"
+
     console.log(loggedState)
     useEffect(() => {
       dispatch(getAllCategoryList())
@@ -97,6 +99,7 @@ const NavBar = () => {
             style={{ height: "50px", width: "50px",padding:"10px" }}
           />
           </a>
+         {userRole? <a href = "/add/product">ADMIN</a>:""}
         </div>
       </div>
       {loggedState?<>
@@ -106,7 +109,7 @@ const NavBar = () => {
       >
         <div class="container-fluid d-flex flex-row justify-content-center justify-content-space-between">
           <ul class="navbar-nav">
-            {categoryList?.map((each)=>(
+            {userRole!=="admin"? categoryList?.map((each)=>(
               <li class="nav-item">
                 <Link class="nav-link" to={`/category/${each._id}`} style = {{textTransform:"uppercase"}}>
                 {each.categoryName}
@@ -115,7 +118,19 @@ const NavBar = () => {
                 {each.categoryName}
               </a> */}
             </li>
-            ))}
+            )):(
+              <>
+              <li class="nav-item">
+              <a class="nav-link" href="/add/product">
+              PRODUCTS
+              </a>
+            </li> <li class="nav-item">
+              <a class="nav-link" href="/add/category">
+                CATEGORYS
+              </a>
+            </li>
+            </>
+            )}
            <li class="nav-item">
               <a class="nav-link" href="about">
                 ABOUT US
