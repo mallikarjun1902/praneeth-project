@@ -39,12 +39,13 @@ export const loginUserAuth = (body,getData) => {
 
 export const addToCart = (body,getData) => {
   return (dispatch, getState) => {
+    console.log(body)
     const userId=getState().user?.userData?._id
     console.log(userId)
     axios
       .post(`http://localhost:1109/${userId}/add_to_cart`,body)
       .then((response) => {
-        // dispatch(userLoginData(response.data))
+        // dispatch(handleAddCartData(body))
         console.log(response);
         getData(response.data)
       })

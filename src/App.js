@@ -32,6 +32,7 @@ import Cart from "./components/global components/cart/cart";
 import ErrorPage from "./components/global components/errorPage/errorPage";
 import Product from "./components/admin/product";
 import Category from "./components/admin/category";
+import Checkout from './components/global components/checkout/checkout'
 
 function App() {
   const isLoggedIn = useSelector((state) => state.user?.isLoggedIn);
@@ -153,6 +154,11 @@ function App() {
           />
 
           <Route exact path="/cart" render={() => pageRender(Cart)} />
+          <Route
+            exact
+            path="/checkout"
+            render={() => pageRender(Checkout)}
+          />
         </Switch>
       </Router>
     </>

@@ -92,9 +92,9 @@ function Saree1() {
                 height: "30px",
               }}
             >
-              <button onClick={() => decrementValue()}>-</button>
-              <button>{quantity}</button>
-              <button onClick={() => incrementValue()}>+</button>
+              <button className="btn btn-light" onClick={() => decrementValue()}>-</button>
+              <button className="btn">{quantity}</button>
+              <button className="btn btn-light" onClick={() => incrementValue()}>+</button>
             </div>
 
             <button

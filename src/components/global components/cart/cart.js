@@ -1,40 +1,100 @@
 //Importing React component from React Library
 import React, { Component, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import {
+  removeFromCart,
+  handleAddCartData,
+  addToCart,
+} from "../../../store/actions";
+import produce from "immer";
+
 function Cart() {
-	const [value, setValue] = useState(1);
+  const dispatch = useDispatch();
+  const userCartItems = useSelector(
+    (state) => state?.user?.userData?.cartItems
+  );
+  const userData = useSelector((state) => state?.user?.userData);
 
-	const decrementValue = () => {
-		if (value === 1) {
-			setValue(1);
-		} else {
-			
-			setValue(value - 1);
-		}
-	};
-	const incrementValue = () => {
-	
-		setValue(value + 1);
-	};
+  //   const [value1, setValue] = useState(1);
 
-	return (
-		<div class="container  p-5">
-			<div className="row">
-				<div className="col-4">
-					<img class="mb-3" src="https://cdn.shopify.com/s/files/1/0026/6544/7536/products/chand-sitare-blouse-528053_800x.jpg?v=1637244810" style={{ width: "100px", height: "100px" }} />
-				</div>
-				<div className="col-8">
-					<p>MERRY GO ROUND</p>
-					<p>Rs.2,300</p>
-					<button  className="btn btn-light" onClick={() => decrementValue()}>-</button>
-					<button className="btn">{value}</button>
-					<button  className="btn btn-light" onClick={() => incrementValue()}>+</button>
-					<a href="#" style={{float:"right"}}>Remove</a>
-					
-				</div>
-			</div>
-			</div>
+  const decrementValue = (value, index) => {
+	let val = Number(value);
+    const newUserData = produce(userData, (draft) => {
+      draft.cartItems[index].userRequiredQuantity = String(val - 1);
+    });
+    dispatch(
+      addToCart(newUserData.cartItems, () => {
+        dispatch(handleAddCartData(newUserData));
+      })
+    );
+  };
+  const incrementValue = (value, index) => {
+    let val = Number(value);
+    const newUserData = produce(userData, (draft) => {
+      draft.cartItems[index].userRequiredQuantity = String(val + 1);
+    });
+    dispatch(
+      addToCart(newUserData.cartItems, () => {
+        dispatch(handleAddCartData(newUserData));
+      })
+    );
+  };
 
-	)
+  const handleRemove = (index) => {
+    dispatch(
+      removeFromCart(index, () => {
+        let newData = { ...userData };
+        let filteredVal = newData.cartItems.filter((item, i) => i != index);
+        newData.cartItems = filteredVal;
+        dispatch(handleAddCartData(newData));
+      })
+    );
+  };
+
+  return (
+    <div
+      style={{ height: "50vh", overflowY: "scroll" }}
+      className="container  p-5"
+    >
+      {userCartItems?.map((item, index) => (
+        <>
+          <div className="row mb-3">
+            <div className="col-4">
+              <img
+                class="mb-3"
+                src={item.image[0]}
+                alt="image"
+                style={{ width: "100px", height: "150px" }}
+              />
+            </div>
+            <div className="col-8">
+              <p>{item.productName}</p>
+              <p>Rs {item.originalPrice}</p>
+              <button disabled={item.userRequiredQuantity==1}
+                className="btn btn-light"
+                onClick={() => decrementValue(item.userRequiredQuantity, index)}
+              >
+                -
+              </button>
+              <button className="btn">{item.userRequiredQuantity}</button>
+              <button
+                className="btn btn-light"
+                onClick={() => incrementValue(item.userRequiredQuantity, index)}
+              >
+                +
+              </button>
+              <p
+                onClick={() => handleRemove(index)}
+                style={{ float: "right", color: "red", cursor: "pointer" }}
+              >
+                Remove
+              </p>
+            </div>
+          </div>
+        </>
+      ))}
+    </div>
+  );
 }
 export default Cart;

@@ -6,7 +6,8 @@ import {
   getAllCategoryList,
   handleAdminDataVisible,
 } from "../../../store/actions";
-import Cart from '../cart/cart'
+import Cart from "../cart/cart";
+import Checkout from "../checkout/checkout";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const NavBar = () => {
 
   console.log("userRole----userRole", userRole);
 
-  const [cartvisible,setCartVisible]= useState(false)
+  const [cartvisible, setCartVisible] = useState(false);
 
   return (
     <>
@@ -101,17 +102,19 @@ const NavBar = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGsPHNDTRSXj2zKf1LQR3pvWEttfSMrN2yw&usqp=CAU"
             style={{ height: "50px", width: "50px", padding: "10px" }}
           />
+
           
-         
-           
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dIdyyUTo69D6o_niUIZNG_IZ1GoCgsExybjLwrb7WqduxwgV5p7_PCnVZk2L-P8v-KE&usqp=CAU"
-              style={{ height: "50px", width: "50px", padding: "10px"}}
-              
-            />
-       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
-  cart
-</button>
+          <button
+            type="button"
+            class="btn"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+           <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dIdyyUTo69D6o_niUIZNG_IZ1GoCgsExybjLwrb7WqduxwgV5p7_PCnVZk2L-P8v-KE&usqp=CAU"
+            style={{ height: "30px", width: "30px" }}
+          />
+          </button>
 
           <Link to="/trackorder">
             <img
@@ -122,11 +125,25 @@ const NavBar = () => {
 
           {userRole === "admin" ? (
             userData.adminDataVisible ? (
-              <a style={{cursor: "pointer",alignSelf: "center",color:"blue"}} onClick={() => dispatch(handleAdminDataVisible(false))}>
+              <a
+                style={{
+                  cursor: "pointer",
+                  alignSelf: "center",
+                  color: "blue",
+                }}
+                onClick={() => dispatch(handleAdminDataVisible(false))}
+              >
                 View Site
               </a>
             ) : (
-              <a style={{cursor: "pointer",alignSelf: "center",color:"blue"}} onClick={() => dispatch(handleAdminDataVisible(true))}>
+              <a
+                style={{
+                  cursor: "pointer",
+                  alignSelf: "center",
+                  color: "blue",
+                }}
+                onClick={() => dispatch(handleAdminDataVisible(true))}
+              >
                 ADMIN
               </a>
             )
@@ -135,65 +152,93 @@ const NavBar = () => {
           )}
         </div>
       </div>
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">CART</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                CART
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <Cart />
+            </div>
+            <div class="modal-footer d-flex flex-column">
+              <p>Add Order Note</p>
+              <p>Shipping calculated at checkout</p>
+              <Link to="/checkout">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">
+                  CHECKOUT
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        <Cart/>
-      </div>
-      <div class="modal-footer d-flex flex-column">
-        <p>Add Order Note</p>
-        <p>Shipping calculated at checkout</p>
-        <button type="button" class="btn btn-dark">CHECKOUT</button>
-      </div>
-    </div>
-  </div>
-</div>
 
       <nav
         class="navbar navbar-expand-sm  navbar-light"
         style={{ backgroundColor: "#e3f2fd" }}
       >
-        <div class="container-fluid d-flex flex-row justify-content-center justify-content-space-between" >
-          <ul class="navbar-nav" style={{display: "-webkit-box",overflow: "auto"}}>
-            
+        <div class="container-fluid d-flex flex-row justify-content-center justify-content-space-between">
+          <ul
+            class="navbar-nav"
+            style={{ display: "-webkit-box", overflow: "auto" }}
+          >
             {userData.adminDataVisible ? (
               <>
                 {" "}
                 <li class="nav-item">
-                  <Link class="nav-link" to="/add/product">PRODUCTS</Link>
+                  <Link class="nav-link" to="/add/product">
+                    PRODUCTS
+                  </Link>
                 </li>{" "}
                 <li class="nav-item">
-                  <Link class="nav-link" to="/add/category">CATEGORY</Link>
+                  <Link class="nav-link" to="/add/category">
+                    CATEGORY
+                  </Link>
                 </li>
               </>
-            ) : categoryList?.map((each) => (
-              <li class="nav-item">
-                <Link
-                  class="nav-link"
-                  to={`/category/${each._id}`}
-                  style={{ textTransform: "uppercase" }}
-                >
-                  {each.categoryName}
-                </Link>
-              </li>
-            ))}
+            ) : (
+              categoryList?.map((each) => (
+                <li class="nav-item">
+                  <Link
+                    class="nav-link"
+                    to={`/category/${each._id}`}
+                    style={{ textTransform: "uppercase" }}
+                  >
+                    {each.categoryName}
+                  </Link>
+                </li>
+              ))
+            )}
             <li class="nav-item">
-              <a class="nav-link" href="/about">
+              <Link
+                class="nav-link"
+                to="/about"
+                style={{ textTransform: "uppercase" }}
+              >
                 ABOUT US
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
-        
       </nav>
-    
     </>
   );
 };
