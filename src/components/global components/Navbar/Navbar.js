@@ -7,12 +7,14 @@ import {
   handleAdminDataVisible,
 } from "../../../store/actions";
 import Cart from '../cart/cart'
+import Checkout from '../checkout/checkout'
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const categoryList = useSelector((state) => state?.category?.category);
   const userData = useSelector((state) => state?.user);
   const userRole = useSelector((state) => state?.user?.userData?.role);
+  
 
   useEffect(() => {
     if (userData.isLoggedIn) dispatch(getAllCategoryList());
@@ -150,7 +152,9 @@ const NavBar = () => {
       <div class="modal-footer d-flex flex-column">
         <p>Add Order Note</p>
         <p>Shipping calculated at checkout</p>
-        <button type="button" class="btn btn-dark">CHECKOUT</button>
+        <Link to='/checkout'>
+        <button type="button" class="btn btn-dark" data-dismiss="modal">CHECKOUT</button>
+        </Link>
       </div>
     </div>
   </div>
