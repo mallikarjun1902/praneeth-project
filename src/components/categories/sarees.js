@@ -8,6 +8,7 @@ function Sarees() {
     const categoryId = window.location.pathname.split('/')[2]
    
     const productList = useSelector((state) =>state?.product?.product)
+    const userData = useSelector((state) =>state?.user)
     const filteredProducts=productList.filter((a)=>a.categoryId===categoryId) 
   console.log("specfic product values",filteredProducts)
     const dispatch=useDispatch()
@@ -17,7 +18,7 @@ function Sarees() {
     // window.location.pathname.split("/")[2]
 }
 useEffect(()=>{
-    dispatch(getAllProductList())
+    if(userData.isLoggedIn) dispatch(getAllProductList())
     
 },[])
 

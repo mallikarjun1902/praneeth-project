@@ -32,6 +32,7 @@ export default function Signup() {
   const [check, setCheck] = useState(false);
   const [buttonClick, setButton] = useState(false);
   const [signupVisible, setSignupVisible] = useState(true);
+  const [role, setRole] = useState('');
 
   const handleValidateEmail = (email) => {
     let regexEmail = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
@@ -100,7 +101,7 @@ export default function Signup() {
     if (
       handleValidateEmail(email) &&
       check &&
-      handleValidatePassword(password)
+      handleValidatePassword(password) && role
     ) {
       const body = {
         userName,
@@ -109,6 +110,7 @@ export default function Signup() {
         phoneNumber,
         gender,
         address,
+        role
       };
 
       let url = "http://localhost:1109/signup";
@@ -116,7 +118,7 @@ export default function Signup() {
       axios
         .post(url, body)
         .then((response) => {
-          history.push("/login");
+          history.push("/");
         })
         .catch((err) => console.log(err));
     }
@@ -133,7 +135,28 @@ export default function Signup() {
         </div>
         <div className="col-6 w-75 p-3">
           <h1 class="mb-3">REGISTER</h1>
-          <p>Please fill in the information below:</p>
+          
+          <select
+          id="items"
+          placeholder="Enter"
+          className="form-control mt-3 mb-3"
+          onChange={(event) => setRole(event.target.value)}
+        >
+          {/* {category?.map((val) => (
+            <option value={val._id}>{val.categoryName}</option>
+          ))} */}
+            <option value="" disabled selected>Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+
+        </select>
+        {buttonClick&&!role ? (
+            <p style={{ fontSize: "12px", fontWeight: "bold", color: "red" }}>
+              Please select a role
+            </p>
+          ) : (
+            ""
+          )}
           <Input
             type="text"
             placeholder="Enter Name"
@@ -216,7 +239,7 @@ export default function Signup() {
             />
             <p
               className="font-weight-bold"
-              style={{ fontSize: "10px", color: check ? "black" : "red" }}
+              style={{ fontSize: "10px", color: buttonClick?check?"black": "red" : "" }}
             >
               Accept Terms and Conditions
             </p>

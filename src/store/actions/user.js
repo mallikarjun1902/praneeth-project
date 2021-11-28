@@ -8,7 +8,15 @@ export const userLoginData = (data) => ({
   type: types.LOGIN,
   payload: data
 });
+export const handleAdminDataVisible = (data) => ({
+  type: types.ADMIN_DATA_VISIBLE,
+  payload: data
+});
 
+export const handleAddCartData = (data) => ({
+  type: types.ADD_TO_CART,
+  payload: data
+});
 
 export const loginUserAuth = (body,getData) => {
   return (dispatch, getState) => {

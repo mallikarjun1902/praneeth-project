@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import {handleAddCartData} from "../../store/actions"
 
 function Saree1() {
+	const dispatch = useDispatch()
 	const productId = window.location.pathname.split("/")[3];
 	let getAllValues = useSelector((state) => state?.product?.product);
+	let userDate = useSelector((state) => state?.user?.userData);
+
 	getAllValues = getAllValues.filter((p) => p._id == productId);
 	console.log("dsfdsf", getAllValues);
 	const [value, setValue] = useState(1);
@@ -18,6 +22,13 @@ function Saree1() {
 	const incrementValue = () => {
 		setValue(value + 1);
 	};
+	const handleAddToCart=()=>{
+		let newCart=[...userDate?.cartItems]
+		newCart.push(getAllValues[0])
+		console.log(newCart)
+		userDate.cartItems=newCart
+		dispatch(handleAddCartData(userDate))
+	}
 
 	return (
 		<>
@@ -35,7 +46,7 @@ function Saree1() {
 					</div>
 					<div class="col-5">
 						<h1 style={{ fontSize: "25px", paddingTop: "10px" }}>
-							{getAllValues[0].productName}
+							{getAllValues[0]?.productName}
 						</h1>
 						<div>
 							<span
@@ -54,8 +65,8 @@ function Saree1() {
 							<span class="fa fa-star"></span>
 						</div>
 						<p>SKU: SUTAWS882</p>
-						<h1 style={{ fontSize: "15px", textDecorationLine: "line-through" }}>MRP: RS. {getAllValues[0].originalPrice}</h1>
-						<h1 style={{ fontSize: "15px" }}>OFFER PRICE: RS. {getAllValues[0].offerPrice}</h1>
+						<h1 style={{ fontSize: "15px", textDecorationLine: "line-through" }}>MRP: RS. {getAllValues[0]?.originalPrice}</h1>
+						<h1 style={{ fontSize: "15px" }}>OFFER PRICE: RS. {getAllValues[0]?.offerPrice}</h1>
 						<p>Price inclusive of taxes</p>
 						<p>Or 3 interest-free payments of ₹933 with </p>
 						<div
@@ -71,7 +82,9 @@ function Saree1() {
 							<button>{value}</button>
 							<button onClick={() => incrementValue()}>+</button>
 						</div>
-					</div>
+
+						<button style={{marginTop:"20px",width: "-webkit-fill-available"}} className="btn btn-primary" onClick={()=>handleAddToCart()} >Add to cart</button>
+					</div> 
 				</div>
 			</div>
 		</>

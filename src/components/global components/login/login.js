@@ -26,20 +26,18 @@ function Login() {
   const [signupVisible, setSignupVisible] = useState(false);
   const [invalidDetails, setInvalidDetails] = useState(false);
   const onSubmit = () => {
-    
-    const body = { userName, password };
+    if(userName&& password ){
+const body = { userName, password };
     dispatch(loginUserAuth(body,()=>{
-    alert("logged in successfully")
-    history.push('/')
+    // alert("logged in successfully")
+    history.push('/dashboard')
     }))
     
-    // axios.post("http://localhost:1109/login", body).then((response) => {
-    //   console.log(response)
-      
-    //   // alert("logged in successfully")
-    //   // window.location.href='/'
-    //   }).catch(error => setInvalidDetails(true))
-
+    }else{
+      setError("Please Enter valid username and password")
+    }
+    
+    
   };
   
 
@@ -54,33 +52,24 @@ function Login() {
               <h1 className="heading text-center">LOGIN</h1>
               {/* <p className={{fontSize:"5px"}}>Please enter your e-mail and password:</p> */}
               <div className="form">
-                {/* <label
-                  for="email"
-                  className="col-12 font-weight-bold"
-                  style={{ fontSize: "10px" }}
-                >
-                  Username or Email
-                </label> */}
+              <p style={{ fontSize: "12px", fontWeight: "bold", color: "red" }}>{error}</p>
+
                 <Input
                   className="form-control col-12"
                   id="email"
                   type="text"
                   placeholder="Enter username"
                   handleChange={(child) => setUserName(child)}
+                  onKeyPress={(key) =>key==="Enter"?onSubmit():''}
                 />
-                {/* <label
-                  for="passsword"
-                  className="col-12 font-weight-bold"
-                  style={{ fontSize: "10px" }}
-                >
-                  Password
-                </label> */}
+               
                 <Input
                   className="form-control col-12"
                   id="password"
                   type="password"
                   placeholder="Enter password"
                   handleChange={(child) => setPassword(child)}
+                  onKeyPress={(key) =>key==="Enter"?onSubmit():''}
                 />
                 <div style={{display: "flex",justifyContent: "space-between"}}>
                   <Link to="/forget">
@@ -101,7 +90,6 @@ function Login() {
                
                 </div>
                
-                <p className="text-danger">{error}</p>
                 
                
               </div>

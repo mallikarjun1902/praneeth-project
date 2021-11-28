@@ -23,7 +23,7 @@ function Errorpage () {
           
             <div className=" col-lg-4"  >
             <div className = "d-flex flex-column">
-            <Link to={'/login'}>
+            <Link to={'/'}>
         <img src = {each.image[0]} style = {{width:"20vw",height:"40vh",marginRight:"2px"}}/>
         </Link>
        <h1 style = {{fontSize:"20px",marginTop:"15px"}}>{each.productName}</h1>

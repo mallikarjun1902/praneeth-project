@@ -2,7 +2,7 @@
 import React from "react";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {useSelector} from  "react-redux"
+import { useSelector } from "react-redux";
 
 import Login from "./components/global components/login/login";
 import Signup from "./components/global components/signup/signup";
@@ -29,75 +29,130 @@ import Trackorder from "./components/global components/order/trackorder";
 
 import Landing from "./components/global components/landing/landing";
 import Cart from "./components/global components/cart/cart";
-import ErrorPage from "./components/global components/errorPage/errorPage"
-import Product from "./components/admin/product"
-import Category from "./components/admin/category"
+import ErrorPage from "./components/global components/errorPage/errorPage";
+import Product from "./components/admin/product";
+import Category from "./components/admin/category";
 
 function App() {
-  const isLoggedIn=useSelector((state) =>state.user?.isLoggedIn)
-  const pageRender = (Page,pageStr) => {
-if(pageStr==="login" || pageStr==="signup" || pageStr==="about" || isLoggedIn ){
-  // console.log("if....",Page)
-  return (
-      <>
-      <NavBar/>
-        <Page />
-        <Footer />
-      </>
-    );
+  const isLoggedIn = useSelector((state) => state.user?.isLoggedIn);
+  const pageRender = (Page, pageStr) => {
+    if (
+      pageStr === "login" ||
+      pageStr === "signup" ||
+      pageStr === "about" ||
+      pageStr === "forget" ||
+      isLoggedIn
+    ) {
+      // console.log("if....",Page)
+      return (
+        <>
+          <NavBar />
+          <Page />
+          <Footer />
+        </>
+      );
+    } else {
+      // console.log("else...",Page,pageStr)
 
-
-}
-else{
-  // console.log("else...",Page,pageStr)
-
-  return (
-    <>
-    <NavBar/>
-      <ErrorPage />
-      <Footer />
-    </>
-  );
-}
-    
+      return (
+        <>
+          <NavBar />
+          <ErrorPage />
+          <Footer />
+        </>
+      );
+    }
+    // return (
+    //   <>
+    //     <NavBar />
+    //     <Page />
+    //     <Footer />
+    //   </>
+    // );
   };
 
   return (
     <>
       <Router>
         <Switch>
-        <Route exact path="/add/product" render={() => pageRender(Product,"admin")} />
-        <Route exact path="/add/category" render={() => pageRender(Category,'admin')} />
-          <Route exact path="/signup" render={() => pageRender(Signup,"signup")} />
-          <Route exact path="/" render={() => pageRender(Landing)} />
+          <Route
+            exact
+            path="/add/product"
+            render={() => pageRender(Product, "admin")}
+          />
+          <Route
+            exact
+            path="/add/category"
+            render={() => pageRender(Category, "admin")}
+          />
+          <Route
+            exact
+            path="/signup"
+            render={() => pageRender(Signup, "signup")}
+          />
+          <Route exact path="/dashboard" render={() => pageRender(Landing)} />
 
-          <Route exact path="/login" render={() =>pageRender(Login,"login") } />
-          <Route exact path="/forget" render={() =>pageRender(Forget)} />
-          <Route exact path="/blouses" render={() =>pageRender(Blouses) } />
-          <Route exact path="/category/:categoryId" render={() =>pageRender(Sarees)} />
+          <Route exact path="/" render={() => pageRender(Login, "login")} />
+          <Route
+            exact
+            path="/forget"
+            render={() => pageRender(Forget, "forget")}
+          />
+          <Route exact path="/blouses" render={() => pageRender(Blouses)} />
+          <Route
+            exact
+            path="/category/:categoryId"
+            render={() => pageRender(Sarees)}
+          />
           <Route
             exact
             path="/category/product/:productId"
             render={() => pageRender(Saree1)}
           />
-          <Route exact path="/collections" render={() =>pageRender(Collections) } />
-          <Route exact path="/accessories" render={() =>pageRender(Accessories) } />
-          <Route exact path="/dresses" render={() =>pageRender(Dresses) } />
-          <Route exact path="/homeliving" render={() =>pageRender(HomeLiving) } />
-          <Route exact path="/loungewear" render={() => pageRender(Loungewear)} />
+          <Route
+            exact
+            path="/collections"
+            render={() => pageRender(Collections)}
+          />
+          <Route
+            exact
+            path="/accessories"
+            render={() => pageRender(Accessories)}
+          />
+          <Route exact path="/dresses" render={() => pageRender(Dresses)} />
+          <Route
+            exact
+            path="/homeliving"
+            render={() => pageRender(HomeLiving)}
+          />
+          <Route
+            exact
+            path="/loungewear"
+            render={() => pageRender(Loungewear)}
+          />
           <Route exact path="/menswear" render={() => pageRender(Menswear)} />
-          <Route exact path="/bestseller" render={() =>pageRender(Bestseller)} />
-          <Route exact path="/about" render={() => pageRender(About,"about")} />
+          <Route
+            exact
+            path="/bestseller"
+            render={() => pageRender(Bestseller)}
+          />
+          <Route
+            exact
+            path="/about"
+            render={() => pageRender(About, "about")}
+          />
 
-          <Route exact path="/footer" render={() =>pageRender(Footer)} />
+          <Route exact path="/footer" render={() => pageRender(Footer)} />
 
-          <Route exact path="/products/1" render={() =>pageRender(Saree1) } />
+          <Route exact path="/products/1" render={() => pageRender(Saree1)} />
 
-          <Route exact path="/trackorder" render={() =>pageRender(Trackorder)} />
+          <Route
+            exact
+            path="/trackorder"
+            render={() => pageRender(Trackorder)}
+          />
 
           <Route exact path="/cart" render={() => pageRender(Cart)} />
-          
-
         </Switch>
       </Router>
     </>

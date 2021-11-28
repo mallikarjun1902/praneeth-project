@@ -1,20 +1,22 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios'
-import {useDispatch,useSelector} from "react-redux"
-import {getAllCategoryList} from "../../../store/actions"
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllCategoryList,
+  handleAdminDataVisible,
+} from "../../../store/actions";
 const NavBar = () => {
-    const dispatch=useDispatch()
-    const categoryList=useSelector((state) =>state?.category?.category)
-    const loggedState = useSelector((state) =>state?.user?.isLoggedIn)
-    const userRole = useSelector((state) =>state?.user?.userdata?.role) || "admin"
+  const dispatch = useDispatch();
+  const categoryList = useSelector((state) => state?.category?.category);
+  const userData = useSelector((state) => state?.user);
+  const userRole = useSelector((state) => state?.user?.userData?.role);
 
-    console.log(loggedState)
-    useEffect(() => {
-      dispatch(getAllCategoryList())
-    },[])
-  
+  useEffect(() => {
+    if (userData.isLoggedIn) dispatch(getAllCategoryList());
+  }, []);
 
+  console.log("userRole----userRole", userRole);
   return (
     <>
       <div class="topnav d-flex flex-row justify-content-between align-items-center">
@@ -66,10 +68,16 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        
-        <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQHoLzcESdhA6Q/company-logo_200_200/0/1559797278843?e=2159024400&v=beta&t=CV3e8vd6TzwirT4uYCRmt4juKTqc7IqYSdkjkAV_odk" class="" height="100" width="100"/>
+        <Link to="/dashboard">
+          <img
+            src="https://media-exp1.licdn.com/dms/image/C4E0BAQHoLzcESdhA6Q/company-logo_200_200/0/1559797278843?e=2159024400&v=beta&t=CV3e8vd6TzwirT4uYCRmt4juKTqc7IqYSdkjkAV_odk"
+            class=""
+            height="100"
+            width="100"
+          />
+        </Link>
         <div class="d-flex flex-row">
-        <form class="form-inline ml-3">
+          <form class="form-inline ml-3">
             <input
               class="form-control mr-sm-2 "
               type="search"
@@ -77,76 +85,77 @@ const NavBar = () => {
               aria-label="Search"
             />
           </form>
-          <a href="/login">
+          <Link to="/">
             <img
               src="https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg"
-              style={{ height: "50px", width: "50px"  ,padding:"10px" }}
+              style={{ height: "50px", width: "50px", padding: "10px" }}
             />
-          </a>
+          </Link>
+
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGsPHNDTRSXj2zKf1LQR3pvWEttfSMrN2yw&usqp=CAU"
-            style={{ height: "50px", width: "50px" ,padding:"10px" }}
+            style={{ height: "50px", width: "50px", padding: "10px" }}
           />
-          <a href="/cart">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dIdyyUTo69D6o_niUIZNG_IZ1GoCgsExybjLwrb7WqduxwgV5p7_PCnVZk2L-P8v-KE&usqp=CAU"
-            style={{ height: "50px", width: "50px",padding:"10px" }}
-          />
-           </a>
-          <a href = '/trackorder'>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdR8264afNa5wCMsyZEqkmVEFmR45HmB5fkg&usqp=CAU"
-            style={{ height: "50px", width: "50px",padding:"10px" }}
-          />
-          </a>
-         {userRole? <a href = "/add/product">ADMIN</a>:""}
+          <Link to="/cart">
+            {" "}
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dIdyyUTo69D6o_niUIZNG_IZ1GoCgsExybjLwrb7WqduxwgV5p7_PCnVZk2L-P8v-KE&usqp=CAU"
+              style={{ height: "50px", width: "50px", padding: "10px" }}
+            />
+          </Link>
+
+          <Link to="/trackorder">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdR8264afNa5wCMsyZEqkmVEFmR45HmB5fkg&usqp=CAU"
+              style={{ height: "50px", width: "50px", padding: "10px" }}
+            />
+          </Link>
+
+          {userRole === "admin" ? (
+            userData.adminDataVisible ? (
+              <a style={{cursor: "pointer",alignSelf: "center",color:"blue"}} onClick={() => dispatch(handleAdminDataVisible(false))}>
+                View Site
+              </a>
+            ) : (
+              <a style={{cursor: "pointer",alignSelf: "center",color:"blue"}} onClick={() => dispatch(handleAdminDataVisible(true))}>
+                ADMIN
+              </a>
+            )
+          ) : (
+            ""
+          )}
         </div>
       </div>
-      {loggedState?<>
-        <nav
-        class="navbar navbar-expand-sm  navbar-light"
-        style={{ backgroundColor: "#e3f2fd" }}
-      >
-        <div class="container-fluid d-flex flex-row justify-content-center justify-content-space-between">
-          <ul class="navbar-nav">
-            {userRole!=="admin"? categoryList?.map((each)=>(
-              <li class="nav-item">
-                <Link class="nav-link" to={`/category/${each._id}`} style = {{textTransform:"uppercase"}}>
-                {each.categoryName}
-                </Link>
-              {/* <a class="nav-link" href="/sarees" style = {{textTransform:"uppercase"}}>
-                {each.categoryName}
-              </a> */}
-            </li>
-            )):(
-              <>
-              <li class="nav-item">
-              <a class="nav-link" href="/add/product">
-              PRODUCTS
-              </a>
-            </li> <li class="nav-item">
-              <a class="nav-link" href="/add/category">
-                CATEGORYS
-              </a>
-            </li>
-            </>
-            )}
-           <li class="nav-item">
-              <a class="nav-link" href="about">
-                ABOUT US
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      </>:<>
+
       <nav
         class="navbar navbar-expand-sm  navbar-light"
         style={{ backgroundColor: "#e3f2fd" }}
       >
-        <div class="container-fluid d-flex flex-row justify-content-center justify-content-space-between">
-          <ul class="navbar-nav">
-           <li class="nav-item">
+        <div class="container-fluid d-flex flex-row justify-content-center justify-content-space-between" >
+          <ul class="navbar-nav" style={{display: "-webkit-box",overflow: "auto"}}>
+            
+            {userData.adminDataVisible ? (
+              <>
+                {" "}
+                <li class="nav-item">
+                  <Link class="nav-link" to="/add/product">PRODUCTS</Link>
+                </li>{" "}
+                <li class="nav-item">
+                  <Link class="nav-link" to="/add/category">CATEGORY</Link>
+                </li>
+              </>
+            ) : categoryList?.map((each) => (
+              <li class="nav-item">
+                <Link
+                  class="nav-link"
+                  to={`/category/${each._id}`}
+                  style={{ textTransform: "uppercase" }}
+                >
+                  {each.categoryName}
+                </Link>
+              </li>
+            ))}
+            <li class="nav-item">
               <a class="nav-link" href="about">
                 ABOUT US
               </a>
@@ -154,8 +163,6 @@ const NavBar = () => {
           </ul>
         </div>
       </nav>
-      </>}
-      
     </>
   );
 };
