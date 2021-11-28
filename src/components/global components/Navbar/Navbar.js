@@ -6,6 +6,8 @@ import {
   getAllCategoryList,
   handleAdminDataVisible,
 } from "../../../store/actions";
+import Cart from '../cart/cart'
+
 const NavBar = () => {
   const dispatch = useDispatch();
   const categoryList = useSelector((state) => state?.category?.category);
@@ -17,6 +19,9 @@ const NavBar = () => {
   }, []);
 
   console.log("userRole----userRole", userRole);
+
+  const [cartvisible,setCartVisible]= useState(false)
+
   return (
     <>
       <div class="topnav d-flex flex-row justify-content-between align-items-center">
@@ -96,13 +101,17 @@ const NavBar = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGsPHNDTRSXj2zKf1LQR3pvWEttfSMrN2yw&usqp=CAU"
             style={{ height: "50px", width: "50px", padding: "10px" }}
           />
-          <Link to="/cart">
-            {" "}
+          
+         
+           
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dIdyyUTo69D6o_niUIZNG_IZ1GoCgsExybjLwrb7WqduxwgV5p7_PCnVZk2L-P8v-KE&usqp=CAU"
-              style={{ height: "50px", width: "50px", padding: "10px" }}
+              style={{ height: "50px", width: "50px", padding: "10px"}}
+              
             />
-          </Link>
+       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+  cart
+</button>
 
           <Link to="/trackorder">
             <img
@@ -126,6 +135,26 @@ const NavBar = () => {
           )}
         </div>
       </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CART</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <Cart/>
+      </div>
+      <div class="modal-footer d-flex flex-column">
+        <p>Add Order Note</p>
+        <p>Shipping calculated at checkout</p>
+        <button type="button" class="btn btn-dark">CHECKOUT</button>
+      </div>
+    </div>
+  </div>
+</div>
 
       <nav
         class="navbar navbar-expand-sm  navbar-light"
@@ -162,7 +191,9 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
+        
       </nav>
+    
     </>
   );
 };
