@@ -30,7 +30,7 @@ function Cart() {
 					<button className="btn">{value}</button>
 					<button  className="btn btn-light" onClick={() => incrementValue()}>+</button>
 					<a href="#" style={{float:"right"}}>Remove</a>
-
+					
 				</div>
 			</div>
 			</div>

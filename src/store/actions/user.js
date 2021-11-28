@@ -18,6 +18,11 @@ export const handleAddCartData = (data) => ({
   payload: data
 });
 
+export const handleRemoveFromCart = (data) => ({
+  type: types.ADD_TO_CART,
+  payload: data
+});
+
 export const loginUserAuth = (body,getData) => {
   return (dispatch, getState) => {
     axios
@@ -38,6 +43,23 @@ export const addToCart = (body,getData) => {
     console.log(userId)
     axios
       .post(`http://localhost:1109/${userId}/add_to_cart`,body)
+      .then((response) => {
+        // dispatch(userLoginData(response.data))
+        console.log(response);
+        getData(response.data)
+      })
+      .catch((error) => console.log("error",error));
+  };
+};
+
+
+export const removeFromCart = (index,getData) => {
+  return (dispatch, getState) => {
+    const userId=getState().user?.userData?._id
+
+    console.log(userId)
+    axios
+      .delete(`http://localhost:1109/${userId}/add_to_cart/${index}`)
       .then((response) => {
         // dispatch(userLoginData(response.data))
         console.log(response);
