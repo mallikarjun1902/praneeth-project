@@ -31,3 +31,19 @@ export const loginUserAuth = (body,getData) => {
   };
 };
 
+
+export const addToCart = (body,getData) => {
+  return (dispatch, getState) => {
+    const userId=getState().user?.userData?._id
+    console.log(userId)
+    axios
+      .post(`http://localhost:1109/${userId}/add_to_cart`,body)
+      .then((response) => {
+        // dispatch(userLoginData(response.data))
+        console.log(response);
+        getData(response.data)
+      })
+      .catch((error) => console.log("error",error));
+  };
+};
+
