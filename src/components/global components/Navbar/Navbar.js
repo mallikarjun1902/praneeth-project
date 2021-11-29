@@ -15,6 +15,7 @@ const NavBar = () => {
   const userData = useSelector((state) => state?.user);
   const userRole = useSelector((state) => state?.user?.userData?.role);
 
+
   useEffect(() => {
     if (userData.isLoggedIn) dispatch(getAllCategoryList());
   }, []);
@@ -22,7 +23,7 @@ const NavBar = () => {
   console.log("userRole----userRole", userRole);
 
   const [cartvisible, setCartVisible] = useState(false);
-
+  const[logout,setLogout] = useState(false);
   return (
     <>
       <div class="topnav d-flex flex-row justify-content-between align-items-center">
@@ -91,12 +92,21 @@ const NavBar = () => {
               aria-label="Search"
             />
           </form>
-          <Link to="/">
+          {userData.isLoggedIn?(<>
+         
+            <img src="https://cdn.icon-icons.com/icons2/2518/PNG/512/logout_icon_151219.png" onClick = {()=>window.location.href='/'} style={{width:"40px",height:"40px"}}/>
+            
+         
+          </>):
+          (
+          <> 
+           <Link to="/">
             <img
               src="https://static.vecteezy.com/system/resources/previews/002/318/271/non_2x/user-profile-icon-free-vector.jpg"
               style={{ height: "50px", width: "50px", padding: "10px" }}
             />
-          </Link>
+          </Link></>)}
+        
 
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGsPHNDTRSXj2zKf1LQR3pvWEttfSMrN2yw&usqp=CAU"
@@ -128,7 +138,7 @@ const NavBar = () => {
               <a
                 style={{
                   cursor: "pointer",
-                  alignSelf: "center",
+                  alignSelf: "center",  
                   color: "blue",
                 }}
                 onClick={() => dispatch(handleAdminDataVisible(false))}
@@ -202,7 +212,7 @@ const NavBar = () => {
           >
             {userData.adminDataVisible ? (
               <>
-                {" "}
+             
                 <li class="nav-item">
                   <Link class="nav-link" to="/add/product">
                     PRODUCTS
