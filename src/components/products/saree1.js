@@ -10,36 +10,49 @@ function Saree1() {
   const [isAddToCart, setIsAddToCart] = useState(false);
   const [productindex,setProductIndex]=useState("")
 
-  let getAllValues = useSelector((state) => state?.product?.product);
+  let getAllProducts = useSelector((state) => state?.product?.product);
   let userData = useSelector((state) => state?.user?.userData)
   const productId = window.location.pathname.split("/")[3]
+  let productDetails = getAllProducts.filter((p) => p._id == productId);
+  // console.log(productId,productDetails)
 
   useEffect(() => {
-    getAllValues = getAllValues.filter((p) => p._id == productId);
-    checkProductExits()
-
-  }, [])
-
-  const checkProductExits=()=>{
+    checkProductExits(userData?.cartItems)
+  },[])
+   
+   const checkProductExits=(products)=>{
+console.log(products.length)
+     if(products.length){
+    products?.filter((e,index) => {
+       if (e._id == productId){ 
+         setIsAddToCart(true)
+         setProductIndex(index)
+        }
+        else{
+          setIsAddToCart(false)
+         setProductIndex('')
+        }
+      })
+    }else{
+      // console.log(isAddToCart)
+      setIsAddToCart(false)
+      setProductIndex('')
+    }
+   }
     
-    userData.cartItems.filter((e,index) => {
-      if (e._id == productId){ 
-      setIsAddToCart(true)
-      setProductIndex(index)
-      }
-    })
-  }
-
-
-
-  const handleRemove = (index) => {
+    
+    
+    
+    const handleRemove = (index) => {
     dispatch(
       removeFromCart(index, () => {
         let newData = { ...userData };
         let filteredVal = newData.cartItems.filter((item, i) => i != index);
         newData.cartItems = filteredVal;
+        // console.log(isAddToCart,filteredVal);
+        checkProductExits(filteredVal)
         dispatch(handleAddCartData(newData));
-        checkProductExits()
+        setMsg("")
       })
     );
   };
@@ -55,9 +68,9 @@ function Saree1() {
     setQuantity(quantity + 1);
   };
   const handleAddToCart = () => {
-    console.log({ ...userData })
+    // console.log({ ...userData })
     let newCart = [...userData?.cartItems];
-    let productVal = { ...getAllValues[0] }
+    let productVal = { ...productDetails[0] }
     productVal.userRequiredQuantity = String(quantity)
     newCart.push(productVal);
     // console.log(newCart);
@@ -67,16 +80,17 @@ function Saree1() {
     dispatch(addToCart(newCart, () => {
       setMsg("Added to cart")
       dispatch(handleAddCartData(newAddedData))
-      checkProductExits()
+      checkProductExits(newCart)
+
     }));
   };
-
+console.log(isAddToCart)
   return (
     <>
       <div class="container">
         <div class="row">
           <div class="col-7 mb-2 overflow-scroll" style={{ minHeight: "50vh" }}>
-            {getAllValues[0]?.image?.map((img) => (
+            {productDetails[0]?.image?.map((img) => (
               <>
 
                 <img
@@ -88,7 +102,7 @@ function Saree1() {
           </div>
           <div class="col-5">
             <h1 style={{ fontSize: "25px", paddingTop: "10px" }}>
-              {getAllValues[0]?.productName}
+              {productDetails[0]?.productName}
             </h1>
             <div>
               <span
@@ -110,10 +124,10 @@ function Saree1() {
             <h1
               style={{ fontSize: "15px", textDecorationLine: "line-through" }}
             >
-              MRP: RS. {getAllValues[0]?.originalPrice}
+              MRP: RS. {productDetails[0]?.originalPrice}
             </h1>
             <h1 style={{ fontSize: "15px" }}>
-              OFFER PRICE: RS. {getAllValues[0]?.offerPrice}
+              OFFER PRICE: RS. {productDetails[0]?.offerPrice}
             </h1>
             <p>Price inclusive of taxes</p>
             <p>Or 3 interest-free payments of ₹933 with </p>
@@ -133,7 +147,7 @@ function Saree1() {
 
             <button
               style={{ marginTop: "20px", width: "-webkit-fill-available" }}
-              className="btn btn-dark"
+              className={isAddToCart?"btn btn-dark":"btn btn-primary"}
               onClick={() => isAddToCart?handleRemove(productindex):handleAddToCart()}
             >
               {isAddToCart ? ("Remove from cart") : ("Add to cart")}
