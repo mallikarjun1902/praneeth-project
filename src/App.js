@@ -4,28 +4,28 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import Login from "./components/global components/login/login";
-import Signup from "./components/global components/signup/signup";
-import Forget from "./components/global components/forget/forget";
+import Login from "./components/global components/Login/Login";
+import Signup from "./components/global components/Signup/Signup";
+import Forget from "./components/global components/Forget/Forget";
 
 import AllProducts from "./components/global components/AllProducts/AllProducts";
 
-import About from "./components/global components/About/about";
+import About from "./components/global components/About/About";
 
 import Navbar from "./components/global components/Navbar/Navbar";
-import Footer from "./components/global components/footer/footercomponents";
+import Footer from "./components/global components/Footer/Footercomponents";
 
 import NavBar from "./components/global components/Navbar/Navbar";
 import SingleProduct from "./components/global components/SingleProduct/SingleProduct";
 
-import Trackorder from "./components/global components/order/trackorder";
+import Trackorder from "./components/global components/Order/Trackorder";
 
-import Landing from "./components/global components/landing/landing";
-import Cart from "./components/global components/cart/cart";
-import ErrorPage from "./components/global components/errorPage/errorPage";
-import AdminProducts from "./components/admin/product";
-import AdminCategory from "./components/admin/category";
-import Checkout from './components/global components/checkout/checkout'
+import Landing from "./components/global components/Landing/Landing";
+import Cart from "./components/global components/Cart/Cart";
+import ErrorPage from "./components/global components/ErrorPage/ErrorPage";
+import AdminProducts from "./components/admin/Product";
+import AdminCategory from "./components/admin/Category";
+import Checkout from './components/global components/Checkout/Checkout'
 
 function App() {
   const isLoggedIn = useSelector((state) => state.user?.isLoggedIn);
