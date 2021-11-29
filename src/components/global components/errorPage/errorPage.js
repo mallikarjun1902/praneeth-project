@@ -1,6 +1,6 @@
 import React,{ Component,useEffect }  from "react";
 import {Link } from "react-router-dom"
-import {getAllProductList} from '.././../../store/actions'
+import {getAllProductList} from '../../../store/actions'
 import {useDispatch,useSelector} from 'react-redux'
 function Errorpage () {
   const dispatch=useDispatch()

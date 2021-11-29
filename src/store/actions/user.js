@@ -23,7 +23,7 @@ export const handleRemoveFromCart = (data) => ({
   payload: data
 });
 
-export const loginUserAuth = (body,getData) => {
+export const loginUserAuth = (body,getData,failure) => {
   return (dispatch, getState) => {
     axios
       .post("http://localhost:1109/login",body)
@@ -32,7 +32,10 @@ export const loginUserAuth = (body,getData) => {
         getData(response.data)
         // console.log(response);
       })
-      .catch((error) => console.log("error",error));
+      .catch((error) => {
+        failure()
+        console.log("error",error)
+      });
   };
 };
 
