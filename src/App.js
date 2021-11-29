@@ -8,30 +8,23 @@ import Login from "./components/global components/login/login";
 import Signup from "./components/global components/signup/signup";
 import Forget from "./components/global components/forget/forget";
 
-import Blouses from "./components/categories/blouses";
-import Sarees from "./components/categories/sarees";
-import Collections from "./components/categories/collections";
-import Accessories from "./components/categories/accessories";
-import Dresses from "./components/categories/dresses";
-import HomeLiving from "./components/categories/home&living";
-import Loungewear from "./components/categories/loungewear";
-import Menswear from "./components/categories/menswear";
-import Bestseller from "./components/categories/bestseller";
-import About from "./components/categories/about";
+import AllProducts from "./components/global components/AllProducts/AllProducts";
+
+import About from "./components/global components/About/about";
 
 import Navbar from "./components/global components/Navbar/Navbar";
 import Footer from "./components/global components/footer/footercomponents";
 
 import NavBar from "./components/global components/Navbar/Navbar";
-import Saree1 from "./components/products/saree1";
+import SingleProduct from "./components/global components/SingleProduct/SingleProduct";
 
 import Trackorder from "./components/global components/order/trackorder";
 
 import Landing from "./components/global components/landing/landing";
 import Cart from "./components/global components/cart/cart";
 import ErrorPage from "./components/global components/errorPage/errorPage";
-import Product from "./components/admin/product";
-import Category from "./components/admin/category";
+import AdminProducts from "./components/admin/product";
+import AdminCategory from "./components/admin/category";
 import Checkout from './components/global components/checkout/checkout'
 
 function App() {
@@ -79,12 +72,12 @@ function App() {
           <Route
             exact
             path="/add/product"
-            render={() => pageRender(Product, "admin")}
+            render={() => pageRender(AdminProducts, "admin")}
           />
           <Route
             exact
             path="/add/category"
-            render={() => pageRender(Category, "admin")}
+            render={() => pageRender(AdminCategory, "admin")}
           />
           <Route
             exact
@@ -99,43 +92,15 @@ function App() {
             path="/forget"
             render={() => pageRender(Forget, "forget")}
           />
-          <Route exact path="/blouses" render={() => pageRender(Blouses)} />
           <Route
             exact
             path="/category/:categoryId"
-            render={() => pageRender(Sarees)}
+            render={() => pageRender(AllProducts)}
           />
           <Route
             exact
             path="/category/product/:productId"
-            render={() => pageRender(Saree1)}
-          />
-          <Route
-            exact
-            path="/collections"
-            render={() => pageRender(Collections)}
-          />
-          <Route
-            exact
-            path="/accessories"
-            render={() => pageRender(Accessories)}
-          />
-          <Route exact path="/dresses" render={() => pageRender(Dresses)} />
-          <Route
-            exact
-            path="/homeliving"
-            render={() => pageRender(HomeLiving)}
-          />
-          <Route
-            exact
-            path="/loungewear"
-            render={() => pageRender(Loungewear)}
-          />
-          <Route exact path="/menswear" render={() => pageRender(Menswear)} />
-          <Route
-            exact
-            path="/bestseller"
-            render={() => pageRender(Bestseller)}
+            render={() => pageRender(SingleProduct)}
           />
           <Route
             exact
@@ -145,7 +110,6 @@ function App() {
 
           <Route exact path="/footer" render={() => pageRender(Footer)} />
 
-          <Route exact path="/products/1" render={() => pageRender(Saree1)} />
 
           <Route
             exact

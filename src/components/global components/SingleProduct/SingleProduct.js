@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, handleAddCartData,removeFromCart } from "../../store/actions";
+import { addToCart, handleAddCartData,removeFromCart } from "../../../store/actions";
 
 
 function Saree1() {
