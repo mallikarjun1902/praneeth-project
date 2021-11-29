@@ -28,7 +28,7 @@ function Saree1() {
 	let productVal={...getAllValues[0]}
 	productVal.userRequiredQuantity=String(quantity)
     newCart.push(productVal);
-    console.log(newCart);
+    // console.log(newCart);
 	let newAddedData={...userData}
 	newAddedData.cartItems=newCart
     // userDate.cartItems=newCart
@@ -45,6 +45,7 @@ function Saree1() {
           <div class="col-7 mb-2 overflow-scroll" style={{ minHeight: "50vh" }}>
             {getAllValues[0]?.image?.map((img) => (
               <>
+
                 <img
                   src={img}
                   style={{ height: "500px", width: "500px", padding: "10px" }}

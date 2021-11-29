@@ -59,6 +59,7 @@ export const removeFromCart = (index,getData) => {
     const userId=getState().user?.userData?._id
 
     console.log(userId)
+    
     axios
       .delete(`http://localhost:1109/${userId}/add_to_cart/${index}`)
       .then((response) => {

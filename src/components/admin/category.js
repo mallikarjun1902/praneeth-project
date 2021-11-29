@@ -1,7 +1,7 @@
 import React,{useState}  from 'react';
 import axios from 'axios'
 import {useDispatch} from "react-redux"
-import {getAllCategoryList} from "../../store/actions"
+import {getAllCategoryList,postCategoryList} from "../../store/actions"
 
 
 const Category = () => {
@@ -22,19 +22,25 @@ const Category = () => {
     const postData=()=>{
         if(category && image){
             console.log(body)
-    axios.post("http://localhost:1109/category",body,{headers:headers}).then((response)=>{
-        console.log(response)
+      dispatch(postCategoryList(body,()=>{
         setSuccessMsg("Category Added Successfully")
-        dispatch(getAllCategoryList())
-    })
-        }else{
-            setError("Please fill all fields")
-        }
+            dispatch(getAllCategoryList())
+      }))}
+      else{
+                setError("Please fill all fields")
+            }
+    // axios.post("http://localhost:1109/category",body,{headers:headers}).then((response)=>{
+    //     console.log(response)
+    //     setSuccessMsg("Category Added Successfully")
+    //     dispatch(getAllCategoryList())
+    // })
+    //     }
         
 }
     return (
         <div className="container p-5">
             <div className="card p-3">
+            
             <h1>Add a new category</h1>
             <p style={{ fontSize: "12px", fontWeight: "bold", color: error?"red":"green" }}>{error?error:successMsg}</p>
 
