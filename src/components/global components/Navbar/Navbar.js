@@ -182,7 +182,7 @@ const NavBar = () => {
               <p>Add Order Note</p>
               <p>Shipping calculated at checkout</p>
               <Link to="/checkout">
-                <button type="button" class="btn btn-dark" >
+                <button type="button" class="btn btn-dark">
                   CHECKOUT
                 </button>
               </Link>
