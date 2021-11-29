@@ -14,22 +14,22 @@ function Saree1() {
   let userData = useSelector((state) => state?.user?.userData)
   const productId = window.location.pathname.split("/")[3]
 
-  useEffect(() => {
-    getAllValues = getAllValues.filter((p) => p._id == productId);
-    checkProductExits()
-
-  }, [])
-
+  getAllValues = getAllValues.filter((p) => p._id == productId);
+  // useEffect(() => {
+    
+  // }, [])
+  
   const checkProductExits=()=>{
     
     userData.cartItems.filter((e,index) => {
-      if (e._id == productId){ 
-      setIsAddToCart(true)
-      setProductIndex(index)
+      if (e._id === productId){ 
+        setIsAddToCart(true)
+        setProductIndex(index)
       }
     })
   }
-
+  
+  checkProductExits()
 
 
   const handleRemove = (index) => {
