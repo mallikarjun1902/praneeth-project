@@ -126,9 +126,10 @@ export default function Signup() {
 
   return (
     <>
-      <div className="container d-flex flex-row align-items-center p-5 mt-3 shadow-lg">
+      <div className="container d-flex flex-column flex-md-row align-items-center p-5 mt-3 shadow-lg">
         <div className="col-6 w-75 p-5">
           <img
+          
             style={{ height: "300px" }}
             src="https://cdn.shopify.com/s/files/1/0026/6544/7536/t/109/assets/suta_ladies.png?v=17381125549598482878"
           />

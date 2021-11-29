@@ -1,17 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart,handleAddCartData } from "../../store/actions";
+import { addToCart, handleAddCartData,removeFromCart } from "../../store/actions";
+
 
 function Saree1() {
   const dispatch = useDispatch();
-  const [msg, setMsg] = useState("");
-  const productId = window.location.pathname.split("/")[3];
-  let getAllValues = useSelector((state) => state?.product?.product);
-  let userData = useSelector((state) => state?.user?.userData);
-
-  getAllValues = getAllValues.filter((p) => p._id == productId);
-  console.log("dsfdsf", getAllValues);
   const [quantity, setQuantity] = useState(1);
+  const [msg, setMsg] = useState("");
+  const [isAddToCart, setIsAddToCart] = useState(false);
+  const [productindex,setProductIndex]=useState("")
+
+  let getAllValues = useSelector((state) => state?.product?.product);
+  let userData = useSelector((state) => state?.user?.userData)
+  const productId = window.location.pathname.split("/")[3]
+
+  useEffect(() => {
+    getAllValues = getAllValues.filter((p) => p._id == productId);
+    checkProductExits()
+
+  }, [])
+
+  const checkProductExits=()=>{
+    
+    userData.cartItems.filter((e,index) => {
+      if (e._id == productId){ 
+      setIsAddToCart(true)
+      setProductIndex(index)
+      }
+    })
+  }
+
+
+
+  const handleRemove = (index) => {
+    dispatch(
+      removeFromCart(index, () => {
+        let newData = { ...userData };
+        let filteredVal = newData.cartItems.filter((item, i) => i != index);
+        newData.cartItems = filteredVal;
+        dispatch(handleAddCartData(newData));
+        checkProductExits()
+      })
+    );
+  };
 
   const decrementValue = () => {
     if (quantity === 1) {
@@ -24,18 +55,20 @@ function Saree1() {
     setQuantity(quantity + 1);
   };
   const handleAddToCart = () => {
+    console.log({ ...userData })
     let newCart = [...userData?.cartItems];
-	let productVal={...getAllValues[0]}
-	productVal.userRequiredQuantity=String(quantity)
+    let productVal = { ...getAllValues[0] }
+    productVal.userRequiredQuantity = String(quantity)
     newCart.push(productVal);
     console.log(newCart);
-	let newAddedData={...userData}
-	newAddedData.cartItems=newCart
+    let newAddedData = { ...userData }
+    newAddedData.cartItems = newCart
     // userDate.cartItems=newCart
     dispatch(addToCart(newCart, () => {
-		setMsg("Added to cart")
-		dispatch(handleAddCartData(newAddedData))
-	}));
+      setMsg("Added to cart")
+      dispatch(handleAddCartData(newAddedData))
+      checkProductExits()
+    }));
   };
 
   return (
@@ -99,12 +132,12 @@ function Saree1() {
 
             <button
               style={{ marginTop: "20px", width: "-webkit-fill-available" }}
-              className="btn btn-primary"
-              onClick={() => handleAddToCart()}
+              className="btn btn-dark"
+              onClick={() => isAddToCart?handleRemove(productindex):handleAddToCart()}
             >
-              Add to cart
+              {isAddToCart ? ("Remove from cart") : ("Add to cart")}
             </button>
-			<p style={{color:"green"}}>{msg}</p>
+            <p style={{ color: "green" }}>{msg}</p>
           </div>
         </div>
       </div>
