@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, handleAddCartData,removeFromCart } from "../../../store/actions";
 
-
+/**
+ * @description It displays the product details like star rating, productname, price ,MRP
+ * and adding to the cart facitities.
+ * It displays the details according to the product respectively.
+ */
 function Saree1() {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
@@ -14,14 +18,13 @@ function Saree1() {
   let userData = useSelector((state) => state?.user?.userData)
   const productId = window.location.pathname.split("/")[3]
   let productDetails = getAllProducts.filter((p) => p._id == productId);
-  // console.log(productId,productDetails)
 
   useEffect(() => {
     checkProductExits(userData?.cartItems)
   },[])
    
    const checkProductExits=(products)=>{
-console.log(products.length)
+    console.log(products.length)
      if(products.length){
     products?.filter((e,index) => {
        if (e._id == productId){ 
@@ -34,14 +37,10 @@ console.log(products.length)
         }
       })
     }else{
-      // console.log(isAddToCart)
       setIsAddToCart(false)
       setProductIndex('')
     }
    }
-    
-    
-    
     
     const handleRemove = (index) => {
     dispatch(
@@ -49,7 +48,6 @@ console.log(products.length)
         let newData = { ...userData };
         let filteredVal = newData.cartItems.filter((item, i) => i != index);
         newData.cartItems = filteredVal;
-        // console.log(isAddToCart,filteredVal);
         checkProductExits(filteredVal)
         dispatch(handleAddCartData(newData));
         setMsg("")
@@ -68,15 +66,12 @@ console.log(products.length)
     setQuantity(quantity + 1);
   };
   const handleAddToCart = () => {
-    // console.log({ ...userData })
     let newCart = [...userData?.cartItems];
     let productVal = { ...productDetails[0] }
     productVal.userRequiredQuantity = String(quantity)
     newCart.push(productVal);
-    // console.log(newCart);
 	let newAddedData={...userData}
 	newAddedData.cartItems=newCart
-    // userDate.cartItems=newCart
     dispatch(addToCart(newCart, () => {
       setMsg("Added to cart")
       dispatch(handleAddCartData(newAddedData))

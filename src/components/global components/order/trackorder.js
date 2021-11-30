@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+/**
+ * @description: displays the trackorder page for asking the details of the user.
+ * @return html page
+ */
 class Trackorder extends Component {
 	render() {
 		return (

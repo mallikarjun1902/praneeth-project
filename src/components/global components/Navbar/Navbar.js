@@ -8,7 +8,10 @@ import {
 } from "../../../store/actions";
 import Cart from "../cart/cart";
 import Checkout from "../checkout/checkout";
-
+/**
+ * @description It displays the navbar with all kinds of categories which are present in site.
+ * @returns Navbar
+ */
 const NavBar = () => {
   const dispatch = useDispatch();
   const categoryList = useSelector((state) => state?.category?.category);

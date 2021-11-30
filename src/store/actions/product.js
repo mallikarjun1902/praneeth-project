@@ -2,8 +2,11 @@ import axios from 'axios'
 import * as types from "../type";
 import url from "../../config"
 
-
-
+/**
+ * @description making all the product related api calls.
+ * @param {String} data 
+ * @returns product list
+ */
 export const productData=(data)=>({
     type: types.PRODUCTS,
     payload: data
