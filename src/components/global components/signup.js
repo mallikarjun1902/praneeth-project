@@ -6,7 +6,7 @@ import Button from "../reusable components/button";
 import Input from "../reusable components/input";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import url from "../../config"
+import mainUrl from "../../config"
 
 
 /**
@@ -115,7 +115,7 @@ export default function Signup() {
         role
       };
 
-      let url = `${url}/signup`;
+      let url = `${mainUrl}/signup`;
 
       axios
         .post(url, body)
@@ -165,6 +165,7 @@ export default function Signup() {
             placeholder="Enter Name"
             value={userName}
             handleChange={(child) => setuserName(child)}
+            onKeyPress={(key)=>console.log()}
           />
           <Input
             type="email"
@@ -174,6 +175,8 @@ export default function Signup() {
               setEmail(child);
               handleValidateEmail(child);
             }}
+            onKeyPress={(key)=>console.log()}
+
           />
           {validateEmail ? (
             <p style={{ fontSize: "12px", fontWeight: "bold", color: "red" }}>
@@ -191,6 +194,8 @@ export default function Signup() {
               setPassword(child);
               handleValidatePassword(child);
             }}
+            onKeyPress={(key)=>console.log()}
+
           />
           {validatePassword ? (
             <p style={{ fontSize: "12px", fontWeight: "bold", color: "red" }}>
@@ -233,6 +238,8 @@ export default function Signup() {
             placeholder="Enter address"
             value={address}
             handleChange={(child) => setAddress(child)}
+            onKeyPress={(key)=>console.log()}
+
           />
           <div style={{ width: "40rem" }} className="d-flex flex-row mt-3">
             <input
