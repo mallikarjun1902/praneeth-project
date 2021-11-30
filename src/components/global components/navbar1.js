@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAllCategoryList,
   handleAdminDataVisible,
-} from "../../../store/actions";
-import Cart from "../cart/cart";
-import Checkout from "../checkout/checkout";
+} from "../../store/actions";
+import Cart from "./cart";
+import Checkout from "./checkout";
 /**
  * @description It displays the navbar with all kinds of categories which are present in site.
  * @returns Navbar

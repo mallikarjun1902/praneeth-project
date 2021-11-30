@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 //import User Components from Local Files
 import PhoneInput from "react-phone-number-input";
-import Button from "../../reusable components/button";
-import Input from "../../reusable components/input";
+import Button from "../reusable components/button";
+import Input from "../reusable components/input";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 

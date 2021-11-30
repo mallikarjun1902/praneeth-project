@@ -4,12 +4,12 @@ import React, { Component, useState } from "react";
 //Importing Link from React Router Dom
 import { Link, useHistory } from "react-router-dom";
 //Importing reusable Components
-import Input from "../../reusable components/input";
-import Button from "../../reusable components/button";
+import Input from "../reusable components/input";
+import Button from "../reusable components/button";
 //imorting axios
 import axios from "axios";
-import { loginUserAuth } from "../../../store/actions";
-import { useDispatch } from "react-redux";
+import { loginUserAuth } from "../../store/actions";
+import { useDispatch } from "react-redux"; 
 
 /**
  * @authors:"madhavi itikala and Spandana"

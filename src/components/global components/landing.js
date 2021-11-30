@@ -2,7 +2,7 @@
 import React, { Component, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { getAllCategoryList } from "../../../store/actions";
+import { getAllCategoryList } from "../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 /**

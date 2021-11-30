@@ -7,7 +7,7 @@
 import React, { Component, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import {removeFromCart,handleAddCartData,addToCart} from "../../../store/actions";
+import {removeFromCart,handleAddCartData,addToCart} from "../../store/actions";
 import produce from "immer";
 
 /**

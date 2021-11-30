@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, handleAddCartData,removeFromCart } from "../../../store/actions";
+import { addToCart, handleAddCartData,removeFromCart } from "../../store/actions";
 
 /**
  * @description It displays the product details like star rating, productname, price ,MRP
