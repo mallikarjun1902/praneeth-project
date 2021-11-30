@@ -3,6 +3,9 @@ import axios from 'axios'
 import {useDispatch} from "react-redux"
 import {getAllCategoryList,postCategoryList} from "../../store/actions"
 
+/**
+ * 
+ */
 
 const Category = () => {
     const dispatch = useDispatch()

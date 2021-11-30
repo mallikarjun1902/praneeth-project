@@ -3,6 +3,11 @@ import axios from "axios";
 import { getAllProductList } from "../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 
+/**
+ * @author:"Madhavi itikala and Spandana"
+ * @description :"It uses the states and fetching the product data from the backend."
+ * We are giving access to the admin to maintain the data and perform operations on it.
+ */
 const Product = () => {
   const dispatch = useDispatch();
   const category = useSelector((state) => state?.category?.category);

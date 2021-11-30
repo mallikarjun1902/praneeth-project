@@ -6,8 +6,8 @@ import {
   getAllCategoryList,
   handleAdminDataVisible,
 } from "../../../store/actions";
-import Cart from "../Cart/Cart";
-import Checkout from "../Checkout/Checkout";
+import Cart from "../cart/cart";
+import Checkout from "../checkout/checkout";
 
 const NavBar = () => {
   const dispatch = useDispatch();

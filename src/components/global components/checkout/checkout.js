@@ -1,6 +1,15 @@
+/**Import React component from React Library
+ * Import useSelector from React Redux
+ */
 import React from 'react';
 import { useSelector } from 'react-redux'
 
+/**
+ * @authors:"madhavi itikala and Spandana"
+ * @returns {Html}
+ * Creating a functional component and returns UI on the browser.
+ * Implementation of Login Component using States.
+ */
 
 const Checkout = () => {
     const userAddress = useSelector((state) => state?.user?.userData?.address) || "Hyderabad"

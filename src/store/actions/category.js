@@ -3,7 +3,11 @@ import * as types from "../type";
 import url from "../../config"
 
 
-
+/**
+ * @description getting all the 
+ * @param {String} data 
+ * @return json file  
+ */
 export const categoryDate=(data)=>({
     type: types.CATEGORY,
     payload: data
