@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 import Login from "./components/global components/login/login";
 import Signup from "./components/global components/signup/signup";
 import Forget from "./components/global components/forget/forget";
-import AllProducts from "./components/global components/AllProducts/AllProducts";
-import About from "./components/global components/About/about";
+import AllProducts from "./components/global components/allProducts1";
+import About from "./components/global components/about1";
 
 // import Navbar from "./components/global components/Navbar/Navbar";
 import Footer from "./components/global components/footer/footer";
