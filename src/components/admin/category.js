@@ -1,12 +1,12 @@
-import React,{useState}  from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'
-import {useDispatch} from "react-redux"
-import {getAllCategoryList,postCategoryList} from "../../store/actions"
+import { useDispatch } from "react-redux"
+import { getAllCategoryList, postCategoryList } from "../../store/actions"
 
 /**
- * 
+ * @description The below code performs the functions like giving access to the admin.
+ * So that the admin can add the cart items and its images from the backend.
  */
-
 const Category = () => {
     const dispatch = useDispatch()
     const [category,setCategory] = useState("")

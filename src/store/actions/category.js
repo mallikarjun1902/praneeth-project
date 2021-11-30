@@ -4,7 +4,7 @@ import url from "../../config"
 
 
 /**
- * @description getting all the 
+ * @description making all the api calls related to the category
  * @param {String} data 
  * @return json file  
  */

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 /**
  * @author:"Madhavi itikala and Spandana"
  * @returns {Html}
- * Implementation of Forgot Component, If user forgot password then we redirect this page.
+ * @description Implementation of Forgot Component, If user forgot password then we redirect this page.
  */
 
 class Footer extends Component {

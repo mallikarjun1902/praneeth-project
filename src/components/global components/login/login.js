@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 /**
  * @authors:"madhavi itikala and Spandana"
  * @returns {Html}
- * Creating a functional component and returns UI on the browser.
+ * @description Creating a functional component and returns UI on the browser.
  * Implementation of Login Component using States.
  */
 

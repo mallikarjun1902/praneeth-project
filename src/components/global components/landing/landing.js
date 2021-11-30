@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 /**
  * @author:"Madhavi itikala and Spandana"
  * @returns {Html}
- * Implementation of Landing Component,we retrieve data from redux and project on the browser.
+ * @description Implementation of Landing Component,we retrieve data from redux and project on the browser.
  */
 function Landing() {
   const categoryList = useSelector((state) => state?.category?.category);

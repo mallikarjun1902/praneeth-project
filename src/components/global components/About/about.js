@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 
 /**
- * @authors:"madhavi itikala and Spandana"
+ * @authors : "madhavi itikala and Spandana"
  * @returns {Html}
- * Creating a functional component and returns UI on the browser.
+ * @description Creating a functional component and returns UI on the browser.
  * Implementation of About Component.
  * In this file,we describing about suta website what gone do suta website and how this site is useful for users.
  */

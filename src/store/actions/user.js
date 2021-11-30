@@ -2,7 +2,11 @@ import * as types from "../type";
 import axios from 'axios'
 import url from "../../config"
 
-
+/**
+ * @description getting all api calls regarding the user 
+ * like login,add to cart,login authentication,remove from the cart.
+ * 
+ */
 export const userLoginData = (data) => ({
   type: types.LOGIN,
   payload: data
