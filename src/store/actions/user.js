@@ -1,7 +1,6 @@
 import * as types from "../type";
 import axios from 'axios'
-
-
+import url from "../../config"
 
 
 export const userLoginData = (data) => ({
@@ -26,7 +25,7 @@ export const handleRemoveFromCart = (data) => ({
 export const loginUserAuth = (body,getData,failure) => {
   return (dispatch, getState) => {
     axios
-      .post("http://localhost:1109/login",body)
+      .post(`${url}/login`,body)
       .then((response) => {
         dispatch(userLoginData(response.data))
         getData(response.data)
@@ -46,7 +45,7 @@ export const addToCart = (body,getData) => {
     const userId=getState().user?.userData?._id
     console.log(userId)
     axios
-      .post(`http://localhost:1109/${userId}/add_to_cart`,body)
+      .post(`${url}/${userId}/add_to_cart`,body)
       .then((response) => {
         // dispatch(handleAddCartData(body))
         console.log(response);
@@ -64,7 +63,7 @@ export const removeFromCart = (index,getData) => {
     console.log(userId)
     
     axios
-      .delete(`http://localhost:1109/${userId}/add_to_cart/${index}`)
+      .delete(`${url}/${userId}/add_to_cart/${index}`)
       .then((response) => {
         // dispatch(userLoginData(response.data))
         console.log(response);

@@ -1,5 +1,7 @@
 import axios from 'axios'
 import * as types from "../type";
+import url from "../../config"
+
 
 
 export const productData=(data)=>({
@@ -16,7 +18,7 @@ export const getAllProductList=()=>{
           'Authorization': `JWT ${token}`
         }
         axios
-          .get("http://localhost:1109/products",{headers:headers})
+          .get(`${url}/products`,{headers:headers})
           .then((response) => {
             dispatch(productData(response.data))
             console.log(response);

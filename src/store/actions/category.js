@@ -1,5 +1,7 @@
 import axios from 'axios'
 import * as types from "../type";
+import url from "../../config"
+
 
 
 export const categoryDate=(data)=>({
@@ -16,7 +18,7 @@ export const getAllCategoryList=()=>{
           'Authorization': `JWT ${token}`
         }
         axios
-          .get("http://localhost:1109/category",{headers:headers})
+          .get(`${url}/category`,{headers:headers})
           .then((response) => {
             dispatch(categoryDate(response.data))
             console.log(response);
@@ -33,7 +35,7 @@ export const postCategoryList=(body,gotData)=>{
         'Authorization': `JWT ${token}`
       }
       axios
-        .post("http://localhost:1109/category",body,{headers:headers})
+        .post(`${url}/category`,body,{headers:headers})
         .then((response) => {
           gotData()
           console.log(response);
