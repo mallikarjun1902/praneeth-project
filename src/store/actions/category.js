@@ -1,7 +1,11 @@
 import axios from 'axios'
 import * as types from "../type";
 
-
+/**
+ * @description getting all the 
+ * @param {String} data 
+ * @return json file  
+ */
 export const categoryDate=(data)=>({
     type: types.CATEGORY,
     payload: data

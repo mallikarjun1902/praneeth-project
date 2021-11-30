@@ -7,6 +7,9 @@ import "react-phone-number-input/style.css";
 import store from "./store";
 import { Provider } from "react-redux";
 
+/**
+ * @description rendering the App component.
+ */
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

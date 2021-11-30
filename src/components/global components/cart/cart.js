@@ -2,12 +2,14 @@
 import React, { Component, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import {
-  removeFromCart,
-  handleAddCartData,
-  addToCart,
-} from "../../../store/actions";
+import {removeFromCart,handleAddCartData,addToCart} from "../../../store/actions";
 import produce from "immer";
+
+/**
+ * @author:"Madhavi itikala and Spandana"
+ * @description :"Adding the product items to the cart takes place."
+ * This code performs the functions like Incrementing, decrementing or removing the cart items in the cart.
+ */
 
 function Cart() {
   const dispatch = useDispatch();

@@ -27,6 +27,9 @@ import AdminProducts from "./components/admin/Product";
 import AdminCategory from "./components/admin/Category";
 import Checkout from './components/global components/Checkout/Checkout'
 
+/**
+ * 
+ */
 function App() {
   const isLoggedIn = useSelector((state) => state.user?.isLoggedIn);
   const pageRender = (Page, pageStr) => {
@@ -37,7 +40,6 @@ function App() {
       pageStr === "forget" ||
       isLoggedIn
     ) {
-      // console.log("if....",Page)
       return (
         <>
           <NavBar />
@@ -46,7 +48,6 @@ function App() {
         </>
       );
     } else {
-      // console.log("else...",Page,pageStr)
 
       return (
         <>
@@ -56,13 +57,6 @@ function App() {
         </>
       );
     }
-    // return (
-    //   <>
-    //     <NavBar />
-    //     <Page />
-    //     <Footer />
-    //   </>
-    // );
   };
 
   return (
