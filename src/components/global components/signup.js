@@ -6,6 +6,8 @@ import Button from "../reusable components/button";
 import Input from "../reusable components/input";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import url from "../../config"
+
 
 /**
  * @author:"Madhavi itikala and Spandana"
@@ -113,7 +115,7 @@ export default function Signup() {
         role
       };
 
-      let url = "http://localhost:1109/signup";
+      let url = `${url}/signup`;
 
       axios
         .post(url, body)

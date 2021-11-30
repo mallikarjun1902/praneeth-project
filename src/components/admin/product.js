@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { getAllProductList } from "../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
+import url from "../../config"
 
 /**
  * @description :"It uses the states and fetching the product data from the backend."
@@ -40,7 +41,7 @@ const Product = () => {
         Authorization: `JWT uyt`,
       };
       axios
-        .post("http://localhost:1109/products", body, { headers: headers })
+        .post(`${url}/products`, body, { headers: headers })
         .then((response) => {
           setSuccessMsg("Product added Successfully");
           console.log(response);
