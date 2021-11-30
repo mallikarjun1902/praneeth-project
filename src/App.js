@@ -12,10 +12,10 @@ import AllProducts from "./components/global components/AllProducts/AllProducts"
 
 import About from "./components/global components/About/about";
 
-import Navbar from "./components/global components/Navbar/Navbar";
+// import Navbar from "./components/global components/Navbar/Navbar";
 import Footer from "./components/global components/footer/footercomponents";
 
-import NavBar from "./components/global components/Navbar/Navbar";
+import NavBar from "./components/global components/navbar/navbar";
 import SingleProduct from "./components/global components/SingleProduct/SingleProduct";
 
 import Trackorder from "./components/global components/order/trackorder";

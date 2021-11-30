@@ -9,7 +9,7 @@ import React, { Component } from 'react';
  * In this file,we describing about suta website what gone do suta website and how this site is useful for users.
  */
 
-const About = () => {
+const About = () => { 
     return (
         <>
             <div class="container d-flex flex-row justify-content-center">

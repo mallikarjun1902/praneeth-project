@@ -32,13 +32,7 @@ const Category = () => {
       else{
                 setError("Please fill all fields")
             }
-    // axios.post("http://localhost:1109/category",body,{headers:headers}).then((response)=>{
-    //     console.log(response)
-    //     setSuccessMsg("Category Added Successfully")
-    //     dispatch(getAllCategoryList())
-    // })
-    //     }
-        
+  
 }
     return (
         <div className="container p-5">
