@@ -1,4 +1,9 @@
-//Importing React component from React Library
+/**Import React component from React Library
+ * Import useDispatch and useSelector from react redux
+ * Import Axios from axios
+ * Import local functions from local files
+*/
+
 import React, { Component, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
