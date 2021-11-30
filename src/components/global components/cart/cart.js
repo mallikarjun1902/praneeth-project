@@ -1,4 +1,9 @@
-//Importing React component from React Library
+/**Import React component from React Library
+ * Import useDispatch and useSelector from react redux
+ * Import Axios from axios
+ * Import local functions from local files
+*/
+
 import React, { Component, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -8,6 +13,14 @@ import {
   addToCart,
 } from "../../../store/actions";
 import produce from "immer";
+
+/**
+ * @authors:"madhavi itikala and Spandana"
+ * @returns {Html}
+ * Creating a functional component and returns UI on the browser.
+ * Implementation of Cart Component using States.
+ * This Cart Component describes about cart Items i.e we can add items into the cart and then we able to see price of each item  and Total amount of items.
+ */
 
 function Cart() {
   const dispatch = useDispatch();
